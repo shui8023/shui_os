@@ -1,0 +1,8 @@
+####################################################
+#configuration file for bochs
+###################################################
+
+megs: 32
+floppya: 1_44=floppy.img, status=inserted
+log:bochsout.txt
+boot: a
