@@ -26,21 +26,11 @@ section  .text 				;代码段
 	dd  MBOOT_HEADER_FLAGS
 	dd  MBOOT_CHECKSUM
 [GLOBAL start] 				;内核代码的入口，此处向ld链接器说明入口，与脚本中的声明一样的
-[GLOBAL glb_mboot_ptr] 			;全局的struct multiboot  *变量
 [EXTERN  entry] 			;声明C语言代码的入口
 start :
 	cli 				;关闭中断
-;	mov esp, STACK_TOP
-;	mov ebp, 0
-;	and esp, 0FFFFFFF0H
-	mov [glb_mboot_ptr], ebx
+	
 	call entry
 	jmp $
 
 section .bss
-;stack :
-;	resb 32768
-
-glb_mboot_ptr :
-	resb 4
-;STACK_TOP equ  $-stack-1

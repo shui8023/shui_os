@@ -41,7 +41,7 @@ AS_FLAGS= -felf -g -F stabs
 #-g是调试信息有效
 #-F 该选项用来为输出文件选择一个调试格式，如stabs格式的
 #-f指定输出文件的格式，缺省的情况下，输出格式总是bin
-all : $(C_OBJECTS) $(S_OBJECTS) link
+all : $(C_OBJECTS) $(S_OBJECTS) link update_image
 #makefile 中的第一个目标会被作为其默认目标，由于依赖关系，有的命令会被决议的。
 #all作为第一个命令，其依赖于下面的的两个目标。故可以make一个执行所有的编译链接。
 #$@是表示的目标集
@@ -55,47 +55,46 @@ all : $(C_OBJECTS) $(S_OBJECTS) link
 
 link:
 	@echo 链接内核文件
-	$(LD) $(LD_FLAGS) $(S_OBJECTS) $(C_OBJECTS) -o shui
+	$(LD) $(LD_FLAGS) $(S_OBJECTS) $(C_OBJECTS) -o shui  
 
 .PHONY:update_image
 update_image:
-	sudo 	mount  floppy.img  	/mnt/kernel/
-	sudo 	cp     shui 		/mnt/kernel/shui
-	sleep 1
-	sudo 	umount /mnt/kernel/
-
-.PHONY:mount_image
-mount_image:
-	sudo  	mount  floppy.img 	/mnt/kernel
+	sudo losetup -d /dev/loop0
 
 .PHONY:umount_image
 umount_image:
-	sudo 	umount /mnt/kernel
+	sudo losetup -d /dev/loop0
 
 TERMAINAL = gnome-terminal
 .PNONY : debug
 debug:
-	qemu-system-i386  -fda floppy.img -boot a -m 32 -S -s 
+	qemu-system-i386  -fda floppy.img -boot a -m 32 -S -s  &
 	sleep 1
-	$(TERMAINAL) -e "gdb -q -tui -x tool/gdbinit"
-	
+#	$(TERMAINAL) -e "gdb -q -tui -x tool/gdbinit"
+	cgdb -x tool/gdbinit
+.PHONY : bochs
+bochs:
+	sudo  losetup /dev/loop0  floppy.img
+	sudo mount /dev/loop0  /mnt
+	sudo cp shui  /mnt
+	sudo umount /mnt
+	bochs  -f  tool/bochsrc.txt 
+	losetup -d /dev/loop0
+
+
+.PHONY :qemu
+qemu :
+	sudo  losetup /dev/loop0  floppy.img
+	sudo mount /dev/loop0  /mnt
+	sudo cp shui  /mnt
+	sudo umount /mnt
+	qemu-system-i386  -fda floppy.img -boot a -m 32
+	losetup -d /dev/loop0
+#-fda  floppy.img 使用文件floppy.img作为磁盘0的镜像
+#-boot a 使用磁盘a启动
+#-m使之内存大小
+
 
 .PHONY :clean
 clean:
 	$(RM) $(C_OBJECTS) $(S_OBJECTS) shui
-
-.PHONY : bochs
-bochs:
-#	bochs -f tool/bochsrc.txt
-	sudo  losetup /dev/loop0 floppy.img
-	sudo mount /dev/loop0  /mnt
-	sudo cp shui  /mnt
-	sudo umount /mnt
-	bochs  -f  tool/bochsrc.txt
-	losetup -d /dev/loop0
-.PHONY :qemu
-qemu :
-	qemu-system-i386  -fda floppy.img -boot a -m 32
-#-fda  floppy.img 使用文件floppy.img作为磁盘0的镜像
-#-boot a 使用磁盘a启动
-#-m使之内存大小
