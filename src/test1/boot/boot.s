@@ -26,11 +26,15 @@ section  .text 				;代码段
 	dd  MBOOT_HEADER_FLAGS
 	dd  MBOOT_CHECKSUM
 [GLOBAL start] 				;内核代码的入口，此处向ld链接器说明入口，与脚本中的声明一样的
+[GLOBAL glb_mboot_ptr]
 [EXTERN  entry] 			;声明C语言代码的入口
 start :
 	cli 				;关闭中断
 	
+	mov [glb_mboot_ptr], ebx
 	call entry
-	jmp $
 
 section .bss
+glb_mboot_ptr:
+	resb 4
+

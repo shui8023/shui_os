@@ -15,15 +15,20 @@
  *
  * =====================================================================================
  */
-#include "entry.h"
-
 int entry()
 {
-	clear_screen();
-	unsigned char  *input = (unsigned char *)0xB8000;
+	unsigned char  *input = (unsigned char *)0xb8000;
+	
+	*input++ = 'H'; 
+	*input++ = 0x07;
+	
+	int i = 0;
+	for (i = 0; i < 80 * 25; i++) {
+		*input++ = ' ';
+		*input++ = 0x07;
 
-	*input++ = 'H'; *input++ = 0x07;
-	clear_screen();
+	}
+	
 
 	return 0;
 }
