@@ -25,18 +25,22 @@ static int16 screen_ordinate = 0;
 
 void screen_clear()
 {
-	int8 back = ((screen_black << 4) | screen_white);
-	int16 color_s = ((int16)back) |0x2000;
+	int16 back = ((screen_black << 4) | screen_white) | 0x2000;
 	int i = 0;
 
 	for (i = 0; i < 80 * 25; i++) {
-		screen_point[i] = ' ';
-		i++;
-		screen_point[i] = 0x07;
+		screen_point[i] = back;
 	}
 }
 
 void screen_string(int8 *string, color back_color, color fore_color)
 {
 	;
+}
+
+static void screen_char(char c)
+{
+	if (c == '\n') {
+		
+	}
 }
