@@ -35,12 +35,19 @@ void screen_clear()
 
 void screen_string(int8 *string, color back_color, color fore_color)
 {
-	;
+	int i = 0;
+	while (string[i] != '\0') {
+		screen_char(sting[i++], color back_color, color fore_color);
+	}
 }
 
 static void screen_char(char c)
 {
 	if (c == '\n') {
+		
+	} else if (c == ' ') {
+		
+	} else if (c == ' ') {
 		
 	}
 }
