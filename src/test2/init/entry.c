@@ -21,10 +21,29 @@
 int entry()
 {
 	screen_clear();
-	unsigned char  *input = (unsigned char *)0xb8000;
-	
-	*input++ = 'H'; 
-	*input++ = 0x07;
+	screen_string("hello,shui!", screen_black, screen_white);
+//	unsigned char  *input = (unsigned char *)0xb8000;
+//	
+//	*input++ = 'H'; 
+//	*input++ = 0x07;
+//	*input++ = 'e'; 
+//	*input++ = 0x07;
+//	*input++ = 'l'; 
+//	*input++ = 0x07;
+//	*input++ = 'l'; 
+//	*input++ = 0x07;
+//	*input++ = 'o';
+//	*input++ = 0x07;
+//	*input++ = ','; 
+//	*input++ = 0x07;
+//	*input++ = 's'; 
+//	*input++ = 0x07;
+//	*input++ = 'h'; 
+//	*input++ = 0x07;
+//	*input++ = 'u'; 
+//	*input++ = 0x07;
+//	*input++ = 'i'; 
+//	*input++ = 0x07;
 	
 	
 

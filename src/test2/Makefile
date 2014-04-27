@@ -43,11 +43,11 @@ CC_FLAGS= -c -Wall -ggdb -I -nostdlib -fno-builtin -m32  -fno-stack-protector -g
 #-fno-stack-protector是关闭堆栈保护功能
 
 
-LD_FLAGS= -T scripts/kernel.lds -m elf_i386 -nostdlib 
+LD_FLAGS= -T scripts/kernel.lds -m elf_i386 -nostdlib  -e entry
 #-T指定链接脚本文件
 #-m elf_i386是生成i386平台下的elf格式的可执行文件，
 #nostdlib是不链接C语言的标准库
-
+#-e entry 这个参数导致了主函数的执行逻辑,这个错误导致了不知道是那个函数首先执行。
 
 AS_FLAGS= -felf -g -F stabs
 #-g是调试信息有效
@@ -101,8 +101,8 @@ TERMAINAL = gnome-terminal
 debug:
 	qemu-system-i386  -fda tool/floppy.img -boot a -m 32 -S -s  &
 	sleep 1
-	$(TERMAINAL) -e "gdb -q -tui -x tool/gdbinit"
-#	cgdb -x tool/gdbinit
+#	$(TERMAINAL) -e "gdb -q -tui -x tool/gdbinit"
+	cgdb -x tool/gdbinit
 #-tui 是使用
 
 .PHONY : bochs
