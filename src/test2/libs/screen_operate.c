@@ -28,6 +28,24 @@ static  int16 * screen_point = (int16 *)0xb8000;
 static int16 screen_abscissa = 0;
 static int16 screen_ordinate = 0;
 
+//static void move_point()
+//{
+//	uint16 loction = screen_abscissa * 80 + screen_ordinate;
+//
+//	outb(0x3D4, 14);
+//	outb(0x3D5, loction >> 8);
+//	outb(0x3D4, 15);
+//	outb(0x3D5, loction);
+//}
+
+
+static void move_point()
+{
+	int16 back_white = (screen_gray | screen_white) << 8 | 0x5F;
+
+	screen_point[screen_abscissa * 80 + screen_ordinate] = back_white;
+}
+
 
 void screen_clear()
 {
@@ -41,7 +59,14 @@ void screen_clear()
 	for (i = 0; i < 80 * 25; i++) {
 		screen_point[i] = back_white;
 	}
+
+	screen_abscissa = 0;
+	screen_ordinate = 0;
+
+	move_point();
 }
+
+
 
 static void screen_char(char c, color back_color, color fore_color )
 {
@@ -49,16 +74,18 @@ static void screen_char(char c, color back_color, color fore_color )
 
 
 	if (c == '\n') {
-		screen_ordinate ++;
-	} else if (c == '\t') {
-		screen_abscissa += 8;
+		screen_abscissa ++; 		//换行
+		screen_ordinate = 0; 		//重头开始
+	} else if (c == 0x09) {
+		screen_ordinate = screen_ordinate + 8;
 	} else if (c == ' ') {
-		screen_abscissa ++;
+		screen_ordinate ++;
 	}else {
 		screen_point[screen_abscissa * 80 + screen_ordinate] = color_s;
 		screen_ordinate ++;
 	}
-
+	
+	move_point();
 }
 
 void screen_string(int8 *string, color back_color, color fore_color)

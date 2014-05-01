@@ -16,8 +16,8 @@
  * =====================================================================================
  */
 
-#ifndef COMMON_H
-#define COMMON_H
+#ifndef SCREEN_PORT_H
+#define SCREEN_PORT_H
 
 #include "types.h"
 
@@ -28,7 +28,7 @@ void outb(uint16 port, uint8 value)
 uint8 inb(uint16 port)
 
 //端口写一个字节
-uint16 inw(uint16, port)
+uint16 inw(uint16 port)
 
 
 #endif //COMMON_H
