@@ -18,8 +18,7 @@
 int entry()
 {
 	screen_clear();
-	screen_string("hello,shui!\n", screen_black, screen_red);
-	screen_string("success!", screen_black, screen_red);
+	screen_string("hello,shui!", screen_black, screen_red);
 	
 	
 
