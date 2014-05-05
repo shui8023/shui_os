@@ -16,8 +16,8 @@
  * =====================================================================================
  */
 
-#ifndef SCREEN_PORT_H
-#define SCREEN_PORT_H
+#ifndef INCLUDE_SCREEN_PORT_H
+#define INCLUDE_SCREEN_PORT_H
 
 #include "types.h"
 

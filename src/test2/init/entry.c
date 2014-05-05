@@ -14,12 +14,19 @@
  */
 
 #include "screen_operate.h"
+#include "string.h"
 
 int entry()
 {
+
+	char * str1 = "duubingyang";
+	char *str2 = "dabendan";
+
+	str1 = strcpy(str1, str2);
+
 	screen_clear();
-	screen_string("hello,shui!", screen_black, screen_red);
-	
+	screen_string(str1, screen_black, screen_red);
+		
 	
 
 	return 0;
