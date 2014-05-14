@@ -58,5 +58,5 @@ void screen_clear();
  *
  */
 void screen_string(char *string, color back_color, color fore_color);
-
+void screen_char(char c, color back_color, color fore_color);
 #endif //SCREEN_OPERATE_H

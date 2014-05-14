@@ -25,12 +25,13 @@ SECTIONS {
 	}
 	
 	.stab :{ 		/*调试信息*/
-		*(.bss)
+		*(.stab)
 		. = ALIGN(4096);
 	}
 	
 	.stabstr : { 		/*.stab中用到的字符串*/
-		*(.stab)
+		*(.stabstr)
 		. = ALIGN(4096);
 	}
+
 }

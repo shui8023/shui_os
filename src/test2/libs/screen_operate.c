@@ -61,7 +61,7 @@ void screen_clear()
 
 
 
-static void screen_char(char c, color back_color, color fore_color )
+ void screen_char(char c, color back_color, color fore_color )
 {
 	int16 color_s = ((back_color | fore_color) << 8) | ((int16)c);
 

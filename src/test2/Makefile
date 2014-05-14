@@ -96,7 +96,7 @@ umount_image:
 	sudo umount /mnt 	    #卸载/mnt
 
 
-TERMAINAL = gnome-terminal
+TERMAINAL = terminal
 .PNONY : debug
 debug:
 	qemu-system-i386  -fda tool/floppy.img -boot a -m 32 -S -s  &

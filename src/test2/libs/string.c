@@ -148,7 +148,7 @@ int8 * strcpy(char *dest, const char *val)
 		*d++ = *s;
 	} while (*s++ != '\0');
 
-	return d;
+	return dest;
 
 }
 
