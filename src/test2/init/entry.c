@@ -24,8 +24,9 @@ int entry()
 	char str2 = 'b';
 	char str3 = 'c';
 	int  a = 1100000111;
+	int b = 98765;
 	screen_clear();
-	printk("a%c%c%c%d", str1 + 1, str2, str3, a);
+	printk("a%c%c%c%d%d", str1 + 1, str2, str3, a, b);
 		
 	
 
