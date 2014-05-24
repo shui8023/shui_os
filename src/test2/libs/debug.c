@@ -23,6 +23,13 @@
 static  void printchar(int8 str);
 static  int  vprintk(const int8 * format, char * ap);
 static  void printi(int number);
+static void prints(char *);
+
+void prints(char *s)
+{
+	screen_string(s, screen_black, screen_red);
+}
+
 
 void printchar(int8 str)
 {
@@ -86,6 +93,9 @@ int vprintk(const int8 * format, char * ap)
 				pc++;
 			} else if (*format == 'd') {
 				printi(va_arg(ap, int));
+				pc++;
+			} else if (*format == 's') {
+				prints(&(va_arg(ap, char)));
 				pc++;
 			} else {
 				printchar(*format);

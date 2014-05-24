@@ -25,8 +25,8 @@
  */
 void *memcpy(void * dest, const void  * src, uint32 len)
 {
-	uint8 *str1 = dest;
-	const uint8 *str2 = src;
+	int8 *str1 = dest;
+	const int8 *str2 = src;
 	int i;
 	
 	i = 0;
@@ -46,7 +46,7 @@ void *memcpy(void * dest, const void  * src, uint32 len)
  *
  *
  */
-void memset(void * dest, uint8 val, uint32 len)
+void memset(void * dest, int8 val, uint32 len)
 {
 	int number;
 	int i;
@@ -112,12 +112,12 @@ void bzer(void *dest, uint32 len)
  *
  *
  */
-int strcmp(const uint8 *dest, const uint8 *val)
+int strcmp(const int8 *dest, const int8 *val)
 {
-	const uint8 *s1 = dest;	
-	const uint8 *s2 = val;
+	const int8 *s1 = dest;	
+	const int8 *s2 = val;
 
-	uint8 c1, c2;
+	int8 c1, c2;
 
 	do {
 		c1 = *s1++;
@@ -156,10 +156,10 @@ int8 * strcpy(char *dest, const char *val)
  *
  *
  */
-uint8  *strcat(uint8 *dest, const uint8 *val)
+int8  *strcat(int8 *dest, const int8 *val)
 {
-	const uint8 *s1 = val;
-	uint8 *d = dest;
+	const int8 *s1 = val;
+	int8 *d = dest;
 
 	if (dest == NULL || val == NULL) {
 		return NULL;
@@ -180,7 +180,7 @@ uint8  *strcat(uint8 *dest, const uint8 *val)
  *
  *
  */
-int strlen(const uint8 *src)
+int strlen(const int8 *src)
 {
 	int number ;
 	

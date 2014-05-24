@@ -21,15 +21,37 @@
 #include "types.h"
 #include "multiboot.h"
 
+#define ELF32_ST_TYPE(i)  	\
+	((i)&0xf)
+
 /*@sh_name 给出节区名称，是节区头部字符串表节区的索引
  *@sh_type 为节区的内容和语义进行分类
  *@sh_flags 节区支持1位形式的标志，
- *@sh_addr
+ *@sh_addr 
  */
-typedef struct elf_head{
-	
+typedef struct {
+	uint8 e_ident[16];
+	uint16 e_type;
+	uint16 e_machine;
+	uint32 e_version;
+	uint32 e_entry;
+	uint32 e_phoff;
+	uint32 e_shoff;
+	uint32 e_flags;
+	uint16 e_ehsize;
+	uint16 e_phentsize;
+	uint16 e_phnum;
+	uint16 e_shentsize;
+	uint16 e_shnum;
+	uint16 e_shstrndx;
+}__attribute__((packed)) Elf32_Ehdr;
+
+/*elf32_shdr又被称为段描述符
+ * 用readelf ——s 就可以查看信息
+ */
+typedef struct {
 	uint32 sh_name;
-	uint32 sh_type;
+	uint32 sh_typr;
 	uint32 sh_flags;
 	uint32 sh_addr;
 	uint32 sh_offset;
@@ -38,28 +60,35 @@ typedef struct elf_head{
 	uint32 sh_info;
 	uint32 sh_addralign;
 	uint32 sh_entsize;
+}__attribute__((packed)) Elf32_Shar;
 
-}elf_head_t;
-
-/*目标文件的符号表中包含用来定位，重定位程序中的符号的定义引用的信息
+/*ELF文件中的符号表是文件的一个段
+ *符号表的结构很简单
  *
- *符号表索引是对此数组的索引
- *@st_name 包含目标文件符号字符串的索引，其中包含符号名的字符串的表示
- *@st_value 此成员给出相关联的符号的取值。
- *@st_size 很多符号具有相关的尺寸大小，例如一个对象的大小中包含的的字节数
- *@st_info 此成员给出类型和绑定的属性，
- *@st_other 该成员当前包含0，没有定义
- *@st_shndx 每个符号表项都以和其他节区间的关系的方式给出定义，此成员给我相关
- *节区头部的表的索引
  */
 typedef struct {
-	uint32 st_name; 	
+	uint32 st_name;
 	uint32 st_value;
 	uint32 st_size;
-	uint32 st_info;
-	uint32 st_other;
-	uint32 st_shndx;
-}elf_symbol_table;
+	uint8 st_info;
+	uint8 st_other;
+	uint16 st_shndx;
+}__attribute__((packed)) Elf32_Sym;
+
+typedef struct elf{
+	Elf32_Sym *symtab;
+	uint32 symtabsz;
+	const char * strtab;
+	uint32 strtabsz;
+}elf_t;
+
+//获取信息
+
+elf_t elf_form_multiboot(multiboot_t *mb);
+
+//查看ELF的符号的信息
+const char *elf_look_symbol(uint32 addr, elf_t *elf);
+
 
 #endif //ELF_H
 

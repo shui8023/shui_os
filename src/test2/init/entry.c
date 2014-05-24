@@ -16,7 +16,8 @@
 #include "screen_operate.h"
 #include "string.h"
 #include "debug.h"
-
+#include "panic.h"
+#include "elf.h"
 int entry()
 {
 
@@ -26,9 +27,11 @@ int entry()
 	int  a = 1100000111;
 	int b = 98765;
 	screen_clear();
+	init_debug();
+
 	printk("a%c%c%c%d%d", str1 + 1, str2, str3, a, b);
 		
-	
+	panic("test");
 
 	return 0;
 }
