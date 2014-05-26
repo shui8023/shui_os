@@ -20,16 +20,12 @@
 #include "elf.h"
 int entry()
 {
-
-	char str1 = 'a';
-	char str2 = 'b';
-	char str3 = 'c';
-	int  a = 1100000111;
-	int b = 98765;
-	screen_clear();
+	
 	init_debug();
+	
+	screen_clear();
 
-	printk("a%c%c%c%d%d", str1 + 1, str2, str3, a, b);
+	printk("hello word!\n");
 		
 	panic("test");
 
