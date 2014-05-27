@@ -18,18 +18,25 @@
 #include "debug.h"
 #include "panic.h"
 #include "elf.h"
+#include "idt.h"
+#include "gdt.h"
+
 int entry()
 {
 	
 	init_debug();
 	init_gdt();
-	
+	init_idt();
+
 	char *string = "hello word!\n";
 	
 	screen_clear();
 	printk("%s\n", string);
 		
-	panic("test");
+//	panic("test");
+	
+//	asm volatile ("int $0x5");
+//	asm volatile ("int $0x8");
 
 	return 0;
 }

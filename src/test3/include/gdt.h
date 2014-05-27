@@ -42,4 +42,7 @@ void init_gdt();
 //从GDT加载到GDTR的函数汇编代码实现
 extern void gdt_flush(uint32 );
 
+
+
+
 #endif //GDT_H
