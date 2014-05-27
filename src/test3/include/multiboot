@@ -1,0 +1,121 @@
+/*
+ * =====================================================================================
+ *
+ *       Filename:  multiboot.h
+ *
+ *    Description:  grub调用内核前获取的硬件信息和内核文件本身的一些信息
+ *
+ *        Version:  1.0
+ *        Created:  2014年05月14日 22时04分18秒
+ *       Revision:  none
+ *       Compiler:  gcc
+ *
+ *         Author:  Shui(dubingyang), dubingyangxiyou@gmail.com
+ *        Company:  Class 1201 of software engineering
+ *
+ * =====================================================================================
+ */
+
+#ifndef INCLUDE_MULTIBOOT_H
+#define INCLUDE_MULTIBOOT_H
+
+#include "types.h"
+
+/*__attribute__((packed))作用是告诉编译器取消结构体在编译的过程中优化对齐，而按照实际占用的字节进行对齐
+ * 可能是考虑到编译器的不同，如果优化对齐之后，在其他的平台可能造成错误了哈
+ *@the multiboot header
+ *其实这个表示的多重引导的
+ */
+typedef struct multiboot_header
+{
+	uint32 magic; 	
+	uint32 flags;
+	uint32 checksum;
+	uint32 header_addr;
+	uint32 load_addr;
+	uint32 load_end_addr;
+	uint32 bss_end_addr;
+	uint32 entry_addr;
+
+}__attribute__((packed)) multiboot_header_t;
+
+/*
+ *@the symbol table for a.out
+ *
+ */
+typedef struct aout_symbol_table
+{
+	uint32 tabsize;
+	uint32 strsize;
+	uint32 add;
+	uint32 reserved;
+
+}__attribute__((packed)) aout_symbol_table_t;
+
+/*
+ *@the section header table for ELF
+ *
+ */
+
+typedef struct elf_section_header_table 
+{
+	uint32 num;
+	uint32 size;
+	uint32 addr;
+	uint32 shndx;
+}elf_section_header_table_t;
+
+/*
+ *@the Multiboot information
+ *
+ */
+typedef struct multiboot_info
+{
+	uint32 flags;  		//multiboot 的版本信息
+	/*
+	 *mem_lower 和mem_upper分别指出了低端和高端地址内存的大小，
+	 *低端内存的首地址是0,高端内存的首地址是1M
+	 *低端内存的最大可能值是640k
+	 *高端的内存最大可能的值是最大的减去1M，但是并不保证是这个值
+	 *
+	 */
+	uint32 mem_lower; 	
+	uint32 mem_upper;
+	uint32 boot_device;
+	uint32 cmdline;
+	uint32 mods_count;
+	uint32 mods_addr;
+	union {
+		aout_symbol_table_t aout_sym;
+		elf_section_header_table_t elf_sec;
+	}u;
+	uint32 mmap_length;
+	uint32 mmap_addr;
+}multiboot_info_t;
+
+/*@the module structure
+ *
+ */
+typedef struct module {
+	uint32 mod_start;
+	uint32 mod_end;
+	uint32 string;
+	uint32 reserved;
+}module_t;
+
+/*
+ *@the memory map, be careful that the offset () is base_addr_low but no size
+ */
+
+typedef struct memory_map
+{
+	uint32 size;
+	uint32 base_addr_low;
+	uint32 base_addr_high;
+	uint32 length_low;
+	uint32 length_high;
+	uint32 type;
+}memory_map_t;
+
+
+#endif 
