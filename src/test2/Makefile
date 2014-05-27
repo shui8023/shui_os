@@ -102,7 +102,7 @@ debug:
 	qemu-system-i386  -fda tool/floppy.img -boot a -m 32 -S -s  &
 	sleep 1
 #	$(TERMAINAL) -e "gdb -q -tui -x tool/gdbinit"
-	cgdb -x tool/gdbinit
+	gdb -x tool/gdbinit
 #-tui 是使用
 
 .PHONY : bochs

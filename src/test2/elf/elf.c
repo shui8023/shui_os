@@ -31,6 +31,7 @@ elf_t elf_form_multiboot(multiboot_t *mb)
 	elf_t elf;
 	//表示multiboot_t中的addr成员是指向elf文件中段的地址
 	Elf32_Shar *sh = (Elf32_Shar *)mb->addr;
+//	Elf32_Shar *sh = mb->addr;
 
 	//sh_addr是段的起始地址,
 	uint32 shstrtab = sh[mb->shndx].sh_addr;
@@ -43,6 +44,10 @@ elf_t elf_form_multiboot(multiboot_t *mb)
 			elf.strtab = (const char *)sh[i].sh_addr;
 			//sh_size是段的大小
 			elf.strtabsz = sh[i].sh_size;
+		} 
+		if (strcmp(name, ".symtab") == 0) {
+			elf.symtab = (Elf32_Sym *)sh[i].sh_addr;
+			elf.symtabsz = sh[i].sh_size;
 		}
 	}
 	

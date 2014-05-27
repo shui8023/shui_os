@@ -22,10 +22,12 @@ int entry()
 {
 	
 	init_debug();
+	init_gdt();
+	
+	char *string = "hello word!\n";
 	
 	screen_clear();
-
-	printk("hello word!\n");
+	printk("%s\n", string);
 		
 	panic("test");
 

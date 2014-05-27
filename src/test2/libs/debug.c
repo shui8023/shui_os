@@ -95,7 +95,7 @@ int vprintk(const int8 * format, char * ap)
 				printi(va_arg(ap, int));
 				pc++;
 			} else if (*format == 's') {
-				prints(&(va_arg(ap, char)));
+				prints((va_arg(ap, char*)));
 				pc++;
 			} else {
 				printchar(*format);
