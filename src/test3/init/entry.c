@@ -29,15 +29,15 @@ int entry()
 	init_idt();
 
 	char *string = "hello word!\n";
-	
+      
 	screen_clear();
 	printk("%s\n", string);
-		
-//	panic("test");
-	
-	asm volatile ("int $0x0");
-//	asm volatile ("int $0x");
-
-	return 0;
+      	
+	panic("test");
+      
+//      asm volatile ("int $0x0");
+//	asm volatile ("int $0x1");
+//	while (1);
+//	return 0;
 }
 

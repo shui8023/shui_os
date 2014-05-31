@@ -79,7 +79,7 @@ void isr_handler(pt_regs_t  *regs);
  *
  */
 
-void  isr0();  //0   #DE 除0异常
+extern void  isr0();  //0   #DE 除0异常
 void  isr1();  //1   #DB  调试异常
 void  isr2();  //2   #NMI NMI
 void  isr3();  //3   #BP  断点异常

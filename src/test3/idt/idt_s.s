@@ -5,6 +5,14 @@
 
 ;定义了两个构造中断处理函数的宏，一个有错误代码，一个没有错误代码
 ;用于没有错误的中断
+;[GLOBAL isr0]
+;isr0:
+;	cli
+;	push byte 0
+;	push byte 0
+;	jmp isr_common_stub
+;
+;
 %macro ISR_NOERRCODE 	1
 [GLOBAL isr%1]
 isr%1:
@@ -68,6 +76,7 @@ ISR_NOERRCODE   255
 ;中断服务
 isr_common_stub:
 	pusha 		;psuhes edi, esi, ebp, esp, ebx, edx, ecx, eax,
+	
 	mov ax, ds
 	push eax 	;保存数据段描述符
  
@@ -92,6 +101,8 @@ isr_common_stub:
 	popa
 	add esp, 8
 	iret
+.end:
+
 
 
 [GLOBAL idt_flush]
