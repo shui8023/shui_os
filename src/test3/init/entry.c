@@ -28,16 +28,16 @@ int entry()
 	init_gdt();
 	init_idt();
 
-	char *string = "hello word!\n";
+//	char *string = "hello word!\n";
       
-	screen_clear();
-	printk("%s\n", string);
+//	screen_clear();
+//	printk("%s\n", string);
       	
-	panic("test");
+//	panic("test");
       
-      asm volatile ("int $0x0");
-	asm volatile ("int $0x1");
-	while (1);
+  	asm volatile ("int $0x3");
+//	asm volatile ("int $0x4");
+//	while (1);
 	return 0;
 }
 

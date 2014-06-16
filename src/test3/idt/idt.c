@@ -103,8 +103,6 @@ static void idt_set_gate(uint8 num, uint32 base, uint16 sel, uint8 flags)
 void isr_handler(pt_regs_t *regs)
 {
 	if (interrupt_handlers[regs->int_no]) {
-		printk("unhanddled interuppt %d\n", regs->int_no);
-
 		interrupt_handlers[regs->int_no](regs);	
 	} else {
 		printk("unhanddled interuppt %d\n", regs->int_no);
