@@ -42,7 +42,7 @@ void init_idt()
 {
 	bzer((uint8*)&interrupt_handlers, sizeof(interrupt_handler_t) * 256);
 	idt_ptr.limit = sizeof(idt_entry_t) * 256 - 1;
-	idt_ptr.base = (uint8)&idt_entries;
+	idt_ptr.base = (uint32)&idt_entries;
 
 	bzer((uint8 *)&idt_entries, sizeof(idt_entry_t) * 256);
 
