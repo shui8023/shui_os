@@ -1,0 +1,434 @@
+00000000000i[     ] Bochs x86 Emulator 2.6.2
+00000000000i[     ]   Built from SVN snapshot on May 26, 2013
+00000000000i[     ] Compiled on Dec 23 2013 at 07:24:20
+00000000000i[     ] System configuration
+00000000000i[     ]   processors: 1 (cores=1, HT threads=1)
+00000000000i[     ]   A20 line support: yes
+00000000000i[     ] IPS is set to 4000000
+00000000000i[     ] CPU configuration
+00000000000i[     ]   SMP support: no
+00000000000i[     ]   level: 6
+00000000000i[     ]   APIC support: xapic
+00000000000i[     ]   FPU support: yes
+00000000000i[     ]   MMX support: yes
+00000000000i[     ]   3dnow! support: no
+00000000000i[     ]   SEP support: yes
+00000000000i[     ]   SSE support: sse2
+00000000000i[     ]   XSAVE support: no 
+00000000000i[     ]   AES support: no
+00000000000i[     ]   MOVBE support: no
+00000000000i[     ]   ADX support: no
+00000000000i[     ]   x86-64 support: no
+00000000000i[     ]   MWAIT support: yes
+00000000000i[     ] Optimization configuration
+00000000000i[     ]   RepeatSpeedups support: no
+00000000000i[     ]   Fast function calls: no
+00000000000i[     ]   Handlers Chaining speedups: no
+00000000000i[     ] Devices configuration
+00000000000i[     ]   NE2000 support: no
+00000000000i[     ]   PCI support: yes, enabled=yes
+00000000000i[     ]   SB16 support: no
+00000000000i[     ]   USB support: no
+00000000000i[     ]   VGA extension support: vbe
+00000000000i[MEM0 ] allocated memory at 0x7ff09fb23010. after alignment, vector=0x7ff09fb24000
+00000000000i[MEM0 ] 32.00MB
+00000000000i[MEM0 ] mem block size = 0x00100000, blocks=32
+00000000000i[MEM0 ] rom at 0xfffe0000/131072 ('/usr/local/share/bochs/BIOS-bochs-latest')
+00000000000i[     ] init_dev of 'pci' plugin device by virtual method
+00000000000i[DEV  ] i440FX PMC present at device 0, function 0
+00000000000i[     ] init_dev of 'pci2isa' plugin device by virtual method
+00000000000i[DEV  ] PIIX3 PCI-to-ISA bridge present at device 1, function 0
+00000000000i[     ] init_dev of 'cmos' plugin device by virtual method
+00000000000i[CMOS ] Using local time for initial clock
+00000000000i[CMOS ] Setting initial clock to: Wed Jun 18 17:44:55 2014 (time0=1403084695)
+00000000000i[     ] init_dev of 'dma' plugin device by virtual method
+00000000000i[DMA  ] channel 4 used by cascade
+00000000000i[     ] init_dev of 'pic' plugin device by virtual method
+00000000000i[     ] init_dev of 'pit' plugin device by virtual method
+00000000000i[     ] init_dev of 'floppy' plugin device by virtual method
+00000000000i[DMA  ] channel 2 used by Floppy Drive
+00000000000i[FDD  ] fd0: 'tool/floppy.img' ro=0, h=2,t=80,spt=18
+00000000000i[     ] init_dev of 'vga' plugin device by virtual method
+00000000000i[MEM0 ] Register memory access handlers: 0x0000000a0000 - 0x0000000bffff
+00000000000i[VGA  ] interval=200000
+00000000000i[MEM0 ] Register memory access handlers: 0x0000e0000000 - 0x0000e0ffffff
+00000000000i[BXVGA] VBE Bochs Display Extension Enabled
+00000000000i[XGUI ] test_alloc_colors: 16 colors available out of 16 colors tried
+00000000000i[XGUI ] font 8 wide x 16 high, display depth = 24
+00000000000i[MEM0 ] rom at 0xc0000/41472 ('/usr/local/share/bochs/VGABIOS-lgpl-latest')
+00000000000i[     ] init_dev of 'acpi' plugin device by virtual method
+00000000000i[DEV  ] ACPI Controller present at device 1, function 3
+00000000000i[     ] init_dev of 'ioapic' plugin device by virtual method
+00000000000i[IOAP ] initializing I/O APIC
+00000000000i[MEM0 ] Register memory access handlers: 0x0000fec00000 - 0x0000fec00fff
+00000000000i[IOAP ] IOAPIC enabled (base address = 0xfec00000)
+00000000000i[     ] init_dev of 'keyboard' plugin device by virtual method
+00000000000i[KBD  ] will paste characters every 400 keyboard ticks
+00000000000i[     ] init_dev of 'harddrv' plugin device by virtual method
+00000000000i[HD   ] Using boot sequence floppy, none, none
+00000000000i[HD   ] Floppy boot signature check is enabled
+00000000000i[     ] init_dev of 'pci_ide' plugin device by virtual method
+00000000000i[DEV  ] PIIX3 PCI IDE controller present at device 1, function 1
+00000000000i[     ] init_dev of 'unmapped' plugin device by virtual method
+00000000000i[     ] init_dev of 'biosdev' plugin device by virtual method
+00000000000i[     ] init_dev of 'speaker' plugin device by virtual method
+00000000000i[     ] init_dev of 'extfpuirq' plugin device by virtual method
+00000000000i[     ] init_dev of 'parallel' plugin device by virtual method
+00000000000i[PAR  ] parallel port 1 at 0x0378 irq 7
+00000000000i[     ] init_dev of 'serial' plugin device by virtual method
+00000000000i[SER  ] com1 at 0x03f8 irq 4
+00000000000i[     ] init_dev of 'iodebug' plugin device by virtual method
+00000000000i[     ] register state of 'pci' plugin device by virtual method
+00000000000i[     ] register state of 'pci2isa' plugin device by virtual method
+00000000000i[     ] register state of 'cmos' plugin device by virtual method
+00000000000i[     ] register state of 'dma' plugin device by virtual method
+00000000000i[     ] register state of 'pic' plugin device by virtual method
+00000000000i[     ] register state of 'pit' plugin device by virtual method
+00000000000i[     ] register state of 'floppy' plugin device by virtual method
+00000000000i[     ] register state of 'vga' plugin device by virtual method
+00000000000i[     ] register state of 'unmapped' plugin device by virtual method
+00000000000i[     ] register state of 'biosdev' plugin device by virtual method
+00000000000i[     ] register state of 'speaker' plugin device by virtual method
+00000000000i[     ] register state of 'extfpuirq' plugin device by virtual method
+00000000000i[     ] register state of 'parallel' plugin device by virtual method
+00000000000i[     ] register state of 'serial' plugin device by virtual method
+00000000000i[     ] register state of 'iodebug' plugin device by virtual method
+00000000000i[     ] register state of 'acpi' plugin device by virtual method
+00000000000i[     ] register state of 'ioapic' plugin device by virtual method
+00000000000i[     ] register state of 'keyboard' plugin device by virtual method
+00000000000i[     ] register state of 'harddrv' plugin device by virtual method
+00000000000i[     ] register state of 'pci_ide' plugin device by virtual method
+00000000000i[SYS  ] bx_pc_system_c::Reset(HARDWARE) called
+00000000000i[CPU0 ] cpu hardware reset
+00000000000i[APIC0] allocate APIC id=0 (MMIO enabled) to 0x0000fee00000
+00000000000i[CPU0 ] CPUID[0x00000000]: 00000005 756e6547 6c65746e 49656e69
+00000000000i[CPU0 ] CPUID[0x00000001]: 00000633 00010800 00000008 1fcbfbff
+00000000000i[CPU0 ] CPUID[0x00000002]: 00410601 00000000 00000000 00000000
+00000000000i[CPU0 ] CPUID[0x00000003]: 00000000 00000000 00000000 00000000
+00000000000i[CPU0 ] CPUID[0x00000004]: 00000000 00000000 00000000 00000000
+00000000000i[CPU0 ] CPUID[0x00000005]: 00000040 00000040 00000003 00000020
+00000000000i[CPU0 ] CPUID[0x80000000]: 80000008 00000000 00000000 00000000
+00000000000i[CPU0 ] CPUID[0x80000001]: 00000000 00000000 00000000 00000000
+00000000000i[CPU0 ] CPUID[0x80000002]: 20202020 20202020 20202020 6e492020
+00000000000i[CPU0 ] CPUID[0x80000003]: 286c6574 50202952 69746e65 52286d75
+00000000000i[CPU0 ] CPUID[0x80000004]: 20342029 20555043 20202020 00202020
+00000000000i[CPU0 ] CPUID[0x80000005]: 01ff01ff 01ff01ff 40020140 40020140
+00000000000i[CPU0 ] CPUID[0x80000006]: 00000000 42004200 02008140 00000000
+00000000000i[CPU0 ] CPUID[0x80000007]: 00000000 00000000 00000000 00000000
+00000000000i[CPU0 ] CPUID[0x80000008]: 00002028 00000000 00000000 00000000
+00000000000i[     ] reset of 'pci' plugin device by virtual method
+00000000000i[     ] reset of 'pci2isa' plugin device by virtual method
+00000000000i[     ] reset of 'cmos' plugin device by virtual method
+00000000000i[     ] reset of 'dma' plugin device by virtual method
+00000000000i[     ] reset of 'pic' plugin device by virtual method
+00000000000i[     ] reset of 'pit' plugin device by virtual method
+00000000000i[     ] reset of 'floppy' plugin device by virtual method
+00000000000i[     ] reset of 'vga' plugin device by virtual method
+00000000000i[     ] reset of 'acpi' plugin device by virtual method
+00000000000i[     ] reset of 'ioapic' plugin device by virtual method
+00000000000i[     ] reset of 'keyboard' plugin device by virtual method
+00000000000i[     ] reset of 'harddrv' plugin device by virtual method
+00000000000i[     ] reset of 'pci_ide' plugin device by virtual method
+00000000000i[     ] reset of 'unmapped' plugin device by virtual method
+00000000000i[     ] reset of 'biosdev' plugin device by virtual method
+00000000000i[     ] reset of 'speaker' plugin device by virtual method
+00000000000e[SPEAK] Failed to open /dev/console: 权限不够
+00000000000e[SPEAK] Deactivating beep on console
+00000000000i[     ] reset of 'extfpuirq' plugin device by virtual method
+00000000000i[     ] reset of 'parallel' plugin device by virtual method
+00000000000i[     ] reset of 'serial' plugin device by virtual method
+00000000000i[     ] reset of 'iodebug' plugin device by virtual method
+00000000000i[XGUI ] Mouse capture off
+00000000000i[     ] set SIGINT handler to bx_debug_ctrlc_handler
+00000000000i[XGUI ] Mouse capture off
+00000000000i[XGUI ] Mouse capture off
+00000000000i[XGUI ] Mouse capture off
+00000000000i[XGUI ] Mouse capture off
+00000000000i[XGUI ] Mouse capture off
+00000000000i[XGUI ] Mouse capture off
+00000000000i[XGUI ] Mouse capture off
+00000000000i[XGUI ] Mouse capture off
+00000000001i[XGUI ] Mouse capture off
+00000000002i[XGUI ] Mouse capture off
+00000000003i[XGUI ] Mouse capture off
+00000000004i[XGUI ] Mouse capture off
+00000000005i[XGUI ] Mouse capture off
+00000000006i[XGUI ] Mouse capture off
+00000000007i[XGUI ] Mouse capture off
+00000000008i[XGUI ] Mouse capture off
+00000000009i[XGUI ] Mouse capture off
+00000000010i[XGUI ] Mouse capture off
+00000000011i[XGUI ] Mouse capture off
+00000000012i[XGUI ] Mouse capture off
+00000000013i[XGUI ] Mouse capture off
+00000000014i[XGUI ] Mouse capture off
+00000000015i[XGUI ] Mouse capture off
+00000000016i[XGUI ] Mouse capture off
+00000000017i[XGUI ] Mouse capture off
+00000000018i[XGUI ] Mouse capture off
+00000000019i[XGUI ] Mouse capture off
+00000000020i[XGUI ] Mouse capture off
+00000000021i[XGUI ] Mouse capture off
+00000000022i[XGUI ] Mouse capture off
+00000000023i[XGUI ] Mouse capture off
+00000000024i[XGUI ] Mouse capture off
+00000000025i[XGUI ] Mouse capture off
+00000000025i[MEM0 ] allocate_block: block=0x0 used 0x1 of 0x20
+00000000026i[XGUI ] Mouse capture off
+00000000027i[XGUI ] Mouse capture off
+00000000028i[XGUI ] Mouse capture off
+00000000029i[XGUI ] Mouse capture off
+00000000030i[XGUI ] Mouse capture off
+00000000031i[XGUI ] Mouse capture off
+00000000032i[XGUI ] Mouse capture off
+00000000160i[XGUI ] Mouse capture off
+00000004661i[BIOS ] $Revision: 11545 $ $Date: 2012-11-11 09:11:17 +0100 (So, 11. Nov 2012) $
+00000004703i[XGUI ] Mouse capture off
+00000005208i[XGUI ] Mouse capture off
+00000005209i[XGUI ] Mouse capture off
+00000005210i[XGUI ] Mouse capture off
+00000005218i[XGUI ] Mouse capture off
+00000005219i[XGUI ] Mouse capture off
+00000005220i[XGUI ] Mouse capture off
+00000005221i[XGUI ] Mouse capture off
+00000005222i[XGUI ] Mouse capture off
+00000005223i[XGUI ] Mouse capture off
+00000005224i[XGUI ] Mouse capture off
+00000005225i[XGUI ] Mouse capture off
+00000005226i[XGUI ] Mouse capture off
+00000005227i[XGUI ] Mouse capture off
+00000005228i[XGUI ] Mouse capture off
+00000005229i[XGUI ] Mouse capture off
+00000005230i[XGUI ] Mouse capture off
+00000005231i[XGUI ] Mouse capture off
+00000005232i[XGUI ] Mouse capture off
+00000005233i[XGUI ] Mouse capture off
+00000005234i[XGUI ] Mouse capture off
+00000005235i[XGUI ] Mouse capture off
+00000005236i[XGUI ] Mouse capture off
+00000005237i[XGUI ] Mouse capture off
+00000005238i[XGUI ] Mouse capture off
+00000005239i[XGUI ] Mouse capture off
+00000005240i[XGUI ] Mouse capture off
+00000005241i[XGUI ] Mouse capture off
+00000005242i[XGUI ] Mouse capture off
+00000005243i[XGUI ] Mouse capture off
+00000005244i[XGUI ] Mouse capture off
+00000005245i[XGUI ] Mouse capture off
+00000005246i[XGUI ] Mouse capture off
+00000005247i[XGUI ] Mouse capture off
+00000005248i[XGUI ] Mouse capture off
+00000005249i[XGUI ] Mouse capture off
+00000005250i[XGUI ] Mouse capture off
+00000005251i[XGUI ] Mouse capture off
+00000008000i[KBD  ] internal keyboard buffer full, ignoring scancode.(38)
+00000008000i[KBD  ] internal keyboard buffer full, ignoring scancode.(8f)
+00000336060i[KBD  ] reset-disable command received
+00000338047i[XGUI ] Mouse capture off
+00000338048i[XGUI ] Mouse capture off
+00000338049i[XGUI ] Mouse capture off
+00000338050i[XGUI ] Mouse capture off
+00000338051i[XGUI ] Mouse capture off
+00000338052i[XGUI ] Mouse capture off
+00000338053i[XGUI ] Mouse capture off
+00000338054i[XGUI ] Mouse capture off
+00000338055i[XGUI ] Mouse capture off
+00000338056i[XGUI ] Mouse capture off
+00000338057i[XGUI ] Mouse capture off
+00000338076i[XGUI ] Mouse capture off
+00000338077i[XGUI ] Mouse capture off
+00000338090i[XGUI ] Mouse capture off
+00000338091i[XGUI ] Mouse capture off
+00000338092i[XGUI ] Mouse capture off
+00000338093i[XGUI ] Mouse capture off
+00000338094i[XGUI ] Mouse capture off
+00000338095i[XGUI ] Mouse capture off
+00000338096i[XGUI ] Mouse capture off
+00000338097i[XGUI ] Mouse capture off
+00000338098i[XGUI ] Mouse capture off
+00000338099i[XGUI ] Mouse capture off
+00000338100i[XGUI ] Mouse capture off
+00000338101i[XGUI ] Mouse capture off
+00000338102i[XGUI ] Mouse capture off
+00000338125i[XGUI ] Mouse capture off
+00000338126i[XGUI ] Mouse capture off
+00000338136i[XGUI ] Mouse capture off
+00000338137i[XGUI ] Mouse capture off
+00000338147i[XGUI ] Mouse capture off
+00000338147i[XGUI ] Mouse capture off
+00000338147i[XGUI ] Mouse capture off
+00000338148i[XGUI ] Mouse capture off
+00000338158i[XGUI ] Mouse capture off
+00000338159i[XGUI ] Mouse capture off
+00000338160i[XGUI ] Mouse capture off
+00000338161i[XGUI ] Mouse capture off
+00000338162i[XGUI ] Mouse capture off
+00000338163i[XGUI ] Mouse capture off
+00000338164i[XGUI ] Mouse capture off
+00000338165i[XGUI ] Mouse capture off
+00000338166i[XGUI ] Mouse capture off
+00000338167i[XGUI ] Mouse capture off
+00000338168i[XGUI ] Mouse capture off
+00000338169i[XGUI ] Mouse capture off
+00000338170i[XGUI ] Mouse capture off
+00000338171i[XGUI ] Mouse capture off
+00000338172i[XGUI ] Mouse capture off
+00000338173i[XGUI ] Mouse capture off
+00000338174i[XGUI ] Mouse capture off
+00000338175i[XGUI ] Mouse capture off
+00000338227i[XGUI ] Mouse capture off
+00000338228i[XGUI ] Mouse capture off
+00000338229i[XGUI ] Mouse capture off
+00000338230i[XGUI ] Mouse capture off
+00000338231i[XGUI ] Mouse capture off
+00000338232i[XGUI ] Mouse capture off
+00000338233i[XGUI ] Mouse capture off
+00000338234i[XGUI ] Mouse capture off
+00000338235i[XGUI ] Mouse capture off
+00000338236i[XGUI ] Mouse capture off
+00000338237i[XGUI ] Mouse capture off
+00000338238i[XGUI ] Mouse capture off
+00000338239i[XGUI ] Mouse capture off
+00000338240i[XGUI ] Mouse capture off
+00000338241i[XGUI ] Mouse capture off
+00000338242i[XGUI ] Mouse capture off
+00000338243i[XGUI ] Mouse capture off
+00000338263i[XGUI ] Mouse capture off
+00000338794i[BIOS ] Starting rombios32
+00000339228i[BIOS ] Shutdown flag 0
+00000339823i[BIOS ] ram_size=0x02000000
+00000340000i[KBD  ] internal keyboard buffer full, ignoring scancode.(8f)
+00000340000i[KBD  ] internal keyboard buffer full, ignoring scancode.(38)
+00000340000i[KBD  ] internal keyboard buffer full, ignoring scancode.(8f)
+00000340000i[KBD  ] internal keyboard buffer full, ignoring scancode.(38)
+00000340000i[KBD  ] internal keyboard buffer full, ignoring scancode.(8f)
+00000340000i[KBD  ] internal keyboard buffer full, ignoring scancode.(38)
+00000340000i[KBD  ] internal keyboard buffer full, ignoring scancode.(8f)
+00000340000i[KBD  ] internal keyboard buffer full, ignoring scancode.(38)
+00000340000i[KBD  ] internal keyboard buffer full, ignoring scancode.(8f)
+00000340000i[KBD  ] internal keyboard buffer full, ignoring scancode.(38)
+00000340000i[KBD  ] internal keyboard buffer full, ignoring scancode.(8f)
+00000340000i[KBD  ] internal keyboard buffer full, ignoring scancode.(38)
+00000340000i[KBD  ] internal keyboard buffer full, ignoring scancode.(8f)
+00000340000i[KBD  ] internal keyboard buffer full, ignoring scancode.(38)
+00000340000i[KBD  ] internal keyboard buffer full, ignoring scancode.(8f)
+00000340000i[KBD  ] internal keyboard buffer full, ignoring scancode.(38)
+00000340000i[KBD  ] internal keyboard buffer full, ignoring scancode.(8f)
+00000340000i[KBD  ] internal keyboard buffer full, ignoring scancode.(38)
+00000340000i[KBD  ] internal keyboard buffer full, ignoring scancode.(8f)
+00000340000i[KBD  ] internal keyboard buffer full, ignoring scancode.(38)
+00000340000i[KBD  ] internal keyboard buffer full, ignoring scancode.(8f)
+00000340000i[KBD  ] internal keyboard buffer full, ignoring scancode.(38)
+00000340244i[BIOS ] ram_end=32MB
+00000380767i[BIOS ] Found 1 cpu(s)
+00000394954i[BIOS ] bios_table_addr: 0x000fa448 end=0x000fcc00
+00000722751i[PCI  ] i440FX PMC write to PAM register 59 (TLB Flush)
+00001050678i[P2I  ] PCI IRQ routing: PIRQA# set to 0x0b
+00001050697i[P2I  ] PCI IRQ routing: PIRQB# set to 0x09
+00001050716i[P2I  ] PCI IRQ routing: PIRQC# set to 0x0b
+00001050735i[P2I  ] PCI IRQ routing: PIRQD# set to 0x09
+00001050745i[P2I  ] write: ELCR2 = 0x0a
+00001051511i[BIOS ] PIIX3/PIIX4 init: elcr=00 0a
+00001059184i[BIOS ] PCI: bus=0 devfn=0x00: vendor_id=0x8086 device_id=0x1237 class=0x0600
+00001061454i[BIOS ] PCI: bus=0 devfn=0x08: vendor_id=0x8086 device_id=0x7000 class=0x0601
+00001063563i[BIOS ] PCI: bus=0 devfn=0x09: vendor_id=0x8086 device_id=0x7010 class=0x0101
+00001063792i[PIDE ] new BM-DMA address: 0xc000
+00001064409i[BIOS ] region 4: 0x0000c000
+00001066434i[BIOS ] PCI: bus=0 devfn=0x0b: vendor_id=0x8086 device_id=0x7113 class=0x0680
+00001066667i[ACPI ] new irq line = 11
+00001066679i[ACPI ] new irq line = 9
+00001066708i[ACPI ] new PM base address: 0xb000
+00001066722i[ACPI ] new SM base address: 0xb100
+00001066750i[PCI  ] setting SMRAM control register to 0x4a
+00001230841i[CPU0 ] Enter to System Management Mode
+00001230852i[CPU0 ] RSM: Resuming from System Management Mode
+00001394870i[PCI  ] setting SMRAM control register to 0x0a
+00001409763i[BIOS ] MP table addr=0x000fa520 MPC table addr=0x000fa450 size=0xc8
+00001411519i[BIOS ] SMBIOS table addr=0x000fa530
+00001411577i[MEM0 ] allocate_block: block=0x1f used 0x2 of 0x20
+00001413714i[BIOS ] ACPI tables: RSDP addr=0x000fa650 ACPI DATA addr=0x01ff0000 size=0xf72
+00001416911i[BIOS ] Firmware waking vector 0x1ff00cc
+00001418709i[PCI  ] i440FX PMC write to PAM register 59 (TLB Flush)
+00001419437i[BIOS ] bios_table_cur_addr: 0x000fa674
+00001419476i[XGUI ] Mouse capture off
+00001419477i[XGUI ] Mouse capture off
+00001419478i[XGUI ] Mouse capture off
+00001547054i[VBIOS] VGABios $Id: vgabios.c,v 1.75 2011/10/15 14:07:21 vruppert Exp $
+00001547125i[BXVGA] VBE known Display Interface b0c0
+00001547157i[BXVGA] VBE known Display Interface b0c5
+00001550082i[VBIOS] VBE Bios $Id: vbe.c,v 1.64 2011/07/19 18:25:05 vruppert Exp $
+00001600003i[XGUI ] charmap update. Font Height is 16
+00001762135i[XGUI ] charmap update. Font Height is 16
+00001762135i[XGUI ] Mouse capture off
+00001882248i[XGUI ] Mouse capture off
+00001882298i[XGUI ] Mouse capture off
+00001882342i[XGUI ] Mouse capture off
+00001883594i[XGUI ] Mouse capture off
+00001884000i[KBD  ] internal keyboard buffer full, ignoring scancode.(38)
+00001887046i[XGUI ] Mouse capture off
+00001887091i[XGUI ] Mouse capture off
+00001887488i[XGUI ] Mouse capture off
+00001887489i[XGUI ] Mouse capture off
+00001887490i[XGUI ] Mouse capture off
+00001888081i[XGUI ] Mouse capture off
+00013846731i[XGUI ] Mouse capture off
+00013846732i[XGUI ] Mouse capture off
+00014040330i[BIOS ] Booting from 0000:7c00
+00023597339i[BIOS ] int13_harddisk: function 41, unmapped device for ELDL=80
+00023601020i[BIOS ] int13_harddisk: function 08, unmapped device for ELDL=80
+00023604684i[BIOS ] *** int 15h function AX=00c0, BX=0000 not yet supported!
+00049704570i[MEM0 ] allocate_block: block=0x1 used 0x3 of 0x20
+00059473060i[XGUI ] Mouse capture off
+00059473061i[XGUI ] Mouse capture off
+00059473061i[XGUI ] Mouse capture off
+00059473062i[XGUI ] Mouse capture off
+00059473063i[XGUI ] Mouse capture off
+00059473064i[XGUI ] Mouse capture off
+00059473065i[XGUI ] Mouse capture off
+00059473066i[XGUI ] Mouse capture off
+00059473067i[XGUI ] Mouse capture off
+00059473068i[XGUI ] Mouse capture off
+00059473069i[XGUI ] Mouse capture off
+00059473070i[XGUI ] Mouse capture off
+00059473070i[XGUI ] Mouse capture off
+00059473070i[XGUI ] Mouse capture off
+00059476000i[KBD  ] internal keyboard buffer full, ignoring scancode.(38)
+00059476000i[KBD  ] internal keyboard buffer full, ignoring scancode.(8f)
+00059476000i[KBD  ] internal keyboard buffer full, ignoring scancode.(38)
+00059481142i[XGUI ] Mouse capture off
+00059481143i[XGUI ] Mouse capture off
+00059481144i[XGUI ] Mouse capture off
+00059481145i[XGUI ] Mouse capture off
+00059481146i[XGUI ] Mouse capture off
+00059481147i[XGUI ] Mouse capture off
+00059481148i[XGUI ] Mouse capture off
+00059481149i[XGUI ] Mouse capture off
+00059481150i[XGUI ] Mouse capture off
+00059481151i[XGUI ] Mouse capture off
+00059481152i[XGUI ] Mouse capture off
+00059481153i[XGUI ] Mouse capture off
+00059481154i[XGUI ] Mouse capture off
+00059481155i[XGUI ] Mouse capture off
+00059481156i[XGUI ] Mouse capture off
+00059481157i[XGUI ] Mouse capture off
+00059481157i[     ] dbg: Quit
+00059481157i[CPU0 ] CPU is in protected mode (active)
+00059481157i[CPU0 ] CS.mode = 32 bit
+00059481157i[CPU0 ] SS.mode = 32 bit
+00059481157i[CPU0 ] EFER   = 0x00000000
+00059481157i[CPU0 ] | EAX=00000002  EBX=0002d000  ECX=000b8000  EDX=000003d5
+00059481157i[CPU0 ] | ESP=00007fbc  EBP=00007ff8  ESI=00053c8c  EDI=00053c8d
+00059481157i[CPU0 ] | IOPL=0 id vip vif ac vm rf nt of df if tf sf ZF af PF cf
+00059481157i[CPU0 ] | SEG sltr(index|ti|rpl)     base    limit G D
+00059481157i[CPU0 ] |  CS:0008( 0001| 0|  0) 00000000 ffffffff 1 1
+00059481157i[CPU0 ] |  DS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+00059481157i[CPU0 ] |  SS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+00059481157i[CPU0 ] |  ES:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+00059481157i[CPU0 ] |  FS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+00059481157i[CPU0 ] |  GS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+00059481157i[CPU0 ] | EIP=00100106 (00100106)
+00059481157i[CPU0 ] | CR0=0x60000011 CR2=0x00000000
+00059481157i[CPU0 ] | CR3=0x00000000 CR4=0x00000000
+00059481157i[CMOS ] Last time is 1403084709 (Wed Jun 18 17:45:09 2014)
+00059481157i[XGUI ] Exit
+00059481157i[CTRL ] quit_sim called with exit code 0
