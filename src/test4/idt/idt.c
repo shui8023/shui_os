@@ -40,6 +40,20 @@ extern void idt_flush(uint32);
 //初始化中断描述符表
 void init_idt()
 {
+	//初始化主片，从片
+	outb(0x20, 0x11);
+	outb(0xA0, 0x11);
+
+	outb(0x21, 0x20);
+	outb(0xA1. 0x28);
+	outb(0x21, 0x04);
+	outb(0xA1, 0x02);
+	outb(0x21, 0x01);
+	outb(0xA1, 0x01);
+	outb(0x21, 0x0);
+	outb(0xA1, 0x0);
+
+
 	bzer((uint8*)&interrupt_handlers, sizeof(interrupt_handler_t) * 256);
 	idt_ptr.limit = sizeof(idt_entry_t) * 256 - 1;
 	idt_ptr.base = (uint32)&idt_entries;
@@ -102,10 +116,19 @@ static void idt_set_gate(uint8 num, uint32 base, uint16 sel, uint8 flags)
 //调用中断处理函数
 void isr_handler(pt_regs_t *regs)
 {
+//	if (interrupt_handlers[regs->int_no]) {
+//		interrupt_handlers[regs->int_no](regs);	
+//	} else {
+//		printk("uhanddled interuppt:%d\n",regs->int_no);
+//	}
+ 	if (regs->int_no >= 40) {
+		outb(0xA0, 0x20);
+	}
+	
+	outb(0x20, 0x20);
+
 	if (interrupt_handlers[regs->int_no]) {
-		interrupt_handlers[regs->int_no](regs);	
-	} else {
-		printk("uhanddled interuppt:%d\n",regs->int_no);
+		interrupt_handlers[regs->int_no](regs);
 	}
 }
 
