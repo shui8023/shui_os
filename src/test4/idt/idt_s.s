@@ -21,22 +21,6 @@ isr%1:
 	push %1 		;push中断号
 	jmp isr_common_stub 	
 %endmacro
-IRQ   0, 32 
-IRQ   1, 33
-IRQ   2, 34
-IRQ   3, 35
-IRQ   4, 36
-IRQ   5, 37
-IRQ   6, 38
-IRQ   7, 39
-IRQ   8, 40
-IRQ   9, 41
-IRQ  10, 42
-IRQ  11, 43
-IRQ  12, 44
-IRQ  13, 45
-IRQ  14, 46
-IRQ  15, 47
 ;用于有错误的代码的中断
 %macro ISR_ERRCODE  1
 [GLOBAL isr%1]
@@ -125,4 +109,62 @@ idt_flush:
 	mov eax, [esp + 4] 	;参数存入eax寄存器
 	lidt [eax] 		;加载到IDTR
 	ret 
+.end:
+
+;构造中断请求的宏
+%macro IRQ 2 
+[GLOBAL irq%1]
+irq%1:
+	cli
+	push byte 0
+	push byte %2
+	jmp irq_common_stub
+%endmacro
+
+IRQ   0, 32 
+IRQ   1, 33
+IRQ   2, 34
+IRQ   3, 35
+IRQ   4, 36
+IRQ   5, 37
+IRQ   6, 38
+IRQ   7, 39
+IRQ   8, 40
+IRQ   9, 41
+IRQ  10, 42
+IRQ  11, 43
+IRQ  12, 44
+IRQ  13, 45
+IRQ  14, 46
+IRQ  15, 47
+
+[GLOBAL irq_common_stub]
+[EXTERn irq_handler]
+irq_common_stub:
+	pusha
+
+	mov ax, ds
+	push eax
+
+	mov ax, 0x10
+	mov ds, ax 
+	mov es, ax
+	mov fs, ax
+	mov gs, ax
+	mov ss, ax
+
+	push esp
+	call irq_handler
+	add esp, 4
+
+	pop ebx
+	mov ds, bx
+	mov es, bx
+	mov fs, bx
+	mov gs, bx
+	mov ss, bx
+
+	popa 
+	add esp, 8
+	iret
 .end:

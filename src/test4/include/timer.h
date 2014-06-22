@@ -21,8 +21,7 @@
 
 #include "types.h"
 
-void  timer_callback(pt_regs_t *regs);
-
+//初始化时钟中断函数
 void init_timer(uint32 frequency);
 
 #endif //TIMER_H

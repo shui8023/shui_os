@@ -1,434 +1,749 @@
-00000000000i[     ] Bochs x86 Emulator 2.6.2
-00000000000i[     ]   Built from SVN snapshot on May 26, 2013
-00000000000i[     ] Compiled on Dec 23 2013 at 07:24:20
-00000000000i[     ] System configuration
-00000000000i[     ]   processors: 1 (cores=1, HT threads=1)
-00000000000i[     ]   A20 line support: yes
-00000000000i[     ] IPS is set to 4000000
-00000000000i[     ] CPU configuration
-00000000000i[     ]   SMP support: no
-00000000000i[     ]   level: 6
-00000000000i[     ]   APIC support: xapic
-00000000000i[     ]   FPU support: yes
-00000000000i[     ]   MMX support: yes
-00000000000i[     ]   3dnow! support: no
-00000000000i[     ]   SEP support: yes
-00000000000i[     ]   SSE support: sse2
-00000000000i[     ]   XSAVE support: no 
-00000000000i[     ]   AES support: no
-00000000000i[     ]   MOVBE support: no
-00000000000i[     ]   ADX support: no
-00000000000i[     ]   x86-64 support: no
-00000000000i[     ]   MWAIT support: yes
-00000000000i[     ] Optimization configuration
-00000000000i[     ]   RepeatSpeedups support: no
-00000000000i[     ]   Fast function calls: no
-00000000000i[     ]   Handlers Chaining speedups: no
-00000000000i[     ] Devices configuration
-00000000000i[     ]   NE2000 support: no
-00000000000i[     ]   PCI support: yes, enabled=yes
-00000000000i[     ]   SB16 support: no
-00000000000i[     ]   USB support: no
-00000000000i[     ]   VGA extension support: vbe
-00000000000i[MEM0 ] allocated memory at 0x7ff09fb23010. after alignment, vector=0x7ff09fb24000
-00000000000i[MEM0 ] 32.00MB
-00000000000i[MEM0 ] mem block size = 0x00100000, blocks=32
-00000000000i[MEM0 ] rom at 0xfffe0000/131072 ('/usr/local/share/bochs/BIOS-bochs-latest')
-00000000000i[     ] init_dev of 'pci' plugin device by virtual method
-00000000000i[DEV  ] i440FX PMC present at device 0, function 0
-00000000000i[     ] init_dev of 'pci2isa' plugin device by virtual method
-00000000000i[DEV  ] PIIX3 PCI-to-ISA bridge present at device 1, function 0
-00000000000i[     ] init_dev of 'cmos' plugin device by virtual method
-00000000000i[CMOS ] Using local time for initial clock
-00000000000i[CMOS ] Setting initial clock to: Wed Jun 18 17:44:55 2014 (time0=1403084695)
-00000000000i[     ] init_dev of 'dma' plugin device by virtual method
-00000000000i[DMA  ] channel 4 used by cascade
-00000000000i[     ] init_dev of 'pic' plugin device by virtual method
-00000000000i[     ] init_dev of 'pit' plugin device by virtual method
-00000000000i[     ] init_dev of 'floppy' plugin device by virtual method
-00000000000i[DMA  ] channel 2 used by Floppy Drive
-00000000000i[FDD  ] fd0: 'tool/floppy.img' ro=0, h=2,t=80,spt=18
-00000000000i[     ] init_dev of 'vga' plugin device by virtual method
-00000000000i[MEM0 ] Register memory access handlers: 0x0000000a0000 - 0x0000000bffff
-00000000000i[VGA  ] interval=200000
-00000000000i[MEM0 ] Register memory access handlers: 0x0000e0000000 - 0x0000e0ffffff
-00000000000i[BXVGA] VBE Bochs Display Extension Enabled
-00000000000i[XGUI ] test_alloc_colors: 16 colors available out of 16 colors tried
-00000000000i[XGUI ] font 8 wide x 16 high, display depth = 24
-00000000000i[MEM0 ] rom at 0xc0000/41472 ('/usr/local/share/bochs/VGABIOS-lgpl-latest')
-00000000000i[     ] init_dev of 'acpi' plugin device by virtual method
-00000000000i[DEV  ] ACPI Controller present at device 1, function 3
-00000000000i[     ] init_dev of 'ioapic' plugin device by virtual method
-00000000000i[IOAP ] initializing I/O APIC
-00000000000i[MEM0 ] Register memory access handlers: 0x0000fec00000 - 0x0000fec00fff
-00000000000i[IOAP ] IOAPIC enabled (base address = 0xfec00000)
-00000000000i[     ] init_dev of 'keyboard' plugin device by virtual method
-00000000000i[KBD  ] will paste characters every 400 keyboard ticks
-00000000000i[     ] init_dev of 'harddrv' plugin device by virtual method
-00000000000i[HD   ] Using boot sequence floppy, none, none
-00000000000i[HD   ] Floppy boot signature check is enabled
-00000000000i[     ] init_dev of 'pci_ide' plugin device by virtual method
-00000000000i[DEV  ] PIIX3 PCI IDE controller present at device 1, function 1
-00000000000i[     ] init_dev of 'unmapped' plugin device by virtual method
-00000000000i[     ] init_dev of 'biosdev' plugin device by virtual method
-00000000000i[     ] init_dev of 'speaker' plugin device by virtual method
-00000000000i[     ] init_dev of 'extfpuirq' plugin device by virtual method
-00000000000i[     ] init_dev of 'parallel' plugin device by virtual method
-00000000000i[PAR  ] parallel port 1 at 0x0378 irq 7
-00000000000i[     ] init_dev of 'serial' plugin device by virtual method
-00000000000i[SER  ] com1 at 0x03f8 irq 4
-00000000000i[     ] init_dev of 'iodebug' plugin device by virtual method
-00000000000i[     ] register state of 'pci' plugin device by virtual method
-00000000000i[     ] register state of 'pci2isa' plugin device by virtual method
-00000000000i[     ] register state of 'cmos' plugin device by virtual method
-00000000000i[     ] register state of 'dma' plugin device by virtual method
-00000000000i[     ] register state of 'pic' plugin device by virtual method
-00000000000i[     ] register state of 'pit' plugin device by virtual method
-00000000000i[     ] register state of 'floppy' plugin device by virtual method
-00000000000i[     ] register state of 'vga' plugin device by virtual method
-00000000000i[     ] register state of 'unmapped' plugin device by virtual method
-00000000000i[     ] register state of 'biosdev' plugin device by virtual method
-00000000000i[     ] register state of 'speaker' plugin device by virtual method
-00000000000i[     ] register state of 'extfpuirq' plugin device by virtual method
-00000000000i[     ] register state of 'parallel' plugin device by virtual method
-00000000000i[     ] register state of 'serial' plugin device by virtual method
-00000000000i[     ] register state of 'iodebug' plugin device by virtual method
-00000000000i[     ] register state of 'acpi' plugin device by virtual method
-00000000000i[     ] register state of 'ioapic' plugin device by virtual method
-00000000000i[     ] register state of 'keyboard' plugin device by virtual method
-00000000000i[     ] register state of 'harddrv' plugin device by virtual method
-00000000000i[     ] register state of 'pci_ide' plugin device by virtual method
-00000000000i[SYS  ] bx_pc_system_c::Reset(HARDWARE) called
-00000000000i[CPU0 ] cpu hardware reset
-00000000000i[APIC0] allocate APIC id=0 (MMIO enabled) to 0x0000fee00000
-00000000000i[CPU0 ] CPUID[0x00000000]: 00000005 756e6547 6c65746e 49656e69
-00000000000i[CPU0 ] CPUID[0x00000001]: 00000633 00010800 00000008 1fcbfbff
-00000000000i[CPU0 ] CPUID[0x00000002]: 00410601 00000000 00000000 00000000
-00000000000i[CPU0 ] CPUID[0x00000003]: 00000000 00000000 00000000 00000000
-00000000000i[CPU0 ] CPUID[0x00000004]: 00000000 00000000 00000000 00000000
-00000000000i[CPU0 ] CPUID[0x00000005]: 00000040 00000040 00000003 00000020
-00000000000i[CPU0 ] CPUID[0x80000000]: 80000008 00000000 00000000 00000000
-00000000000i[CPU0 ] CPUID[0x80000001]: 00000000 00000000 00000000 00000000
-00000000000i[CPU0 ] CPUID[0x80000002]: 20202020 20202020 20202020 6e492020
-00000000000i[CPU0 ] CPUID[0x80000003]: 286c6574 50202952 69746e65 52286d75
-00000000000i[CPU0 ] CPUID[0x80000004]: 20342029 20555043 20202020 00202020
-00000000000i[CPU0 ] CPUID[0x80000005]: 01ff01ff 01ff01ff 40020140 40020140
-00000000000i[CPU0 ] CPUID[0x80000006]: 00000000 42004200 02008140 00000000
-00000000000i[CPU0 ] CPUID[0x80000007]: 00000000 00000000 00000000 00000000
-00000000000i[CPU0 ] CPUID[0x80000008]: 00002028 00000000 00000000 00000000
-00000000000i[     ] reset of 'pci' plugin device by virtual method
-00000000000i[     ] reset of 'pci2isa' plugin device by virtual method
-00000000000i[     ] reset of 'cmos' plugin device by virtual method
-00000000000i[     ] reset of 'dma' plugin device by virtual method
-00000000000i[     ] reset of 'pic' plugin device by virtual method
-00000000000i[     ] reset of 'pit' plugin device by virtual method
-00000000000i[     ] reset of 'floppy' plugin device by virtual method
-00000000000i[     ] reset of 'vga' plugin device by virtual method
-00000000000i[     ] reset of 'acpi' plugin device by virtual method
-00000000000i[     ] reset of 'ioapic' plugin device by virtual method
-00000000000i[     ] reset of 'keyboard' plugin device by virtual method
-00000000000i[     ] reset of 'harddrv' plugin device by virtual method
-00000000000i[     ] reset of 'pci_ide' plugin device by virtual method
-00000000000i[     ] reset of 'unmapped' plugin device by virtual method
-00000000000i[     ] reset of 'biosdev' plugin device by virtual method
-00000000000i[     ] reset of 'speaker' plugin device by virtual method
-00000000000e[SPEAK] Failed to open /dev/console: 权限不够
-00000000000e[SPEAK] Deactivating beep on console
-00000000000i[     ] reset of 'extfpuirq' plugin device by virtual method
-00000000000i[     ] reset of 'parallel' plugin device by virtual method
-00000000000i[     ] reset of 'serial' plugin device by virtual method
-00000000000i[     ] reset of 'iodebug' plugin device by virtual method
-00000000000i[XGUI ] Mouse capture off
-00000000000i[     ] set SIGINT handler to bx_debug_ctrlc_handler
-00000000000i[XGUI ] Mouse capture off
-00000000000i[XGUI ] Mouse capture off
-00000000000i[XGUI ] Mouse capture off
-00000000000i[XGUI ] Mouse capture off
-00000000000i[XGUI ] Mouse capture off
-00000000000i[XGUI ] Mouse capture off
-00000000000i[XGUI ] Mouse capture off
-00000000000i[XGUI ] Mouse capture off
-00000000001i[XGUI ] Mouse capture off
-00000000002i[XGUI ] Mouse capture off
-00000000003i[XGUI ] Mouse capture off
-00000000004i[XGUI ] Mouse capture off
-00000000005i[XGUI ] Mouse capture off
-00000000006i[XGUI ] Mouse capture off
-00000000007i[XGUI ] Mouse capture off
-00000000008i[XGUI ] Mouse capture off
-00000000009i[XGUI ] Mouse capture off
-00000000010i[XGUI ] Mouse capture off
-00000000011i[XGUI ] Mouse capture off
-00000000012i[XGUI ] Mouse capture off
-00000000013i[XGUI ] Mouse capture off
-00000000014i[XGUI ] Mouse capture off
-00000000015i[XGUI ] Mouse capture off
-00000000016i[XGUI ] Mouse capture off
-00000000017i[XGUI ] Mouse capture off
-00000000018i[XGUI ] Mouse capture off
-00000000019i[XGUI ] Mouse capture off
-00000000020i[XGUI ] Mouse capture off
-00000000021i[XGUI ] Mouse capture off
-00000000022i[XGUI ] Mouse capture off
-00000000023i[XGUI ] Mouse capture off
-00000000024i[XGUI ] Mouse capture off
-00000000025i[XGUI ] Mouse capture off
-00000000025i[MEM0 ] allocate_block: block=0x0 used 0x1 of 0x20
-00000000026i[XGUI ] Mouse capture off
-00000000027i[XGUI ] Mouse capture off
-00000000028i[XGUI ] Mouse capture off
-00000000029i[XGUI ] Mouse capture off
-00000000030i[XGUI ] Mouse capture off
-00000000031i[XGUI ] Mouse capture off
-00000000032i[XGUI ] Mouse capture off
-00000000160i[XGUI ] Mouse capture off
-00000004661i[BIOS ] $Revision: 11545 $ $Date: 2012-11-11 09:11:17 +0100 (So, 11. Nov 2012) $
-00000004703i[XGUI ] Mouse capture off
-00000005208i[XGUI ] Mouse capture off
-00000005209i[XGUI ] Mouse capture off
-00000005210i[XGUI ] Mouse capture off
-00000005218i[XGUI ] Mouse capture off
-00000005219i[XGUI ] Mouse capture off
-00000005220i[XGUI ] Mouse capture off
-00000005221i[XGUI ] Mouse capture off
-00000005222i[XGUI ] Mouse capture off
-00000005223i[XGUI ] Mouse capture off
-00000005224i[XGUI ] Mouse capture off
-00000005225i[XGUI ] Mouse capture off
-00000005226i[XGUI ] Mouse capture off
-00000005227i[XGUI ] Mouse capture off
-00000005228i[XGUI ] Mouse capture off
-00000005229i[XGUI ] Mouse capture off
-00000005230i[XGUI ] Mouse capture off
-00000005231i[XGUI ] Mouse capture off
-00000005232i[XGUI ] Mouse capture off
-00000005233i[XGUI ] Mouse capture off
-00000005234i[XGUI ] Mouse capture off
-00000005235i[XGUI ] Mouse capture off
-00000005236i[XGUI ] Mouse capture off
-00000005237i[XGUI ] Mouse capture off
-00000005238i[XGUI ] Mouse capture off
-00000005239i[XGUI ] Mouse capture off
-00000005240i[XGUI ] Mouse capture off
-00000005241i[XGUI ] Mouse capture off
-00000005242i[XGUI ] Mouse capture off
-00000005243i[XGUI ] Mouse capture off
-00000005244i[XGUI ] Mouse capture off
-00000005245i[XGUI ] Mouse capture off
-00000005246i[XGUI ] Mouse capture off
-00000005247i[XGUI ] Mouse capture off
-00000005248i[XGUI ] Mouse capture off
-00000005249i[XGUI ] Mouse capture off
-00000005250i[XGUI ] Mouse capture off
-00000005251i[XGUI ] Mouse capture off
-00000008000i[KBD  ] internal keyboard buffer full, ignoring scancode.(38)
-00000008000i[KBD  ] internal keyboard buffer full, ignoring scancode.(8f)
-00000336060i[KBD  ] reset-disable command received
-00000338047i[XGUI ] Mouse capture off
-00000338048i[XGUI ] Mouse capture off
-00000338049i[XGUI ] Mouse capture off
-00000338050i[XGUI ] Mouse capture off
-00000338051i[XGUI ] Mouse capture off
-00000338052i[XGUI ] Mouse capture off
-00000338053i[XGUI ] Mouse capture off
-00000338054i[XGUI ] Mouse capture off
-00000338055i[XGUI ] Mouse capture off
-00000338056i[XGUI ] Mouse capture off
-00000338057i[XGUI ] Mouse capture off
-00000338076i[XGUI ] Mouse capture off
-00000338077i[XGUI ] Mouse capture off
-00000338090i[XGUI ] Mouse capture off
-00000338091i[XGUI ] Mouse capture off
-00000338092i[XGUI ] Mouse capture off
-00000338093i[XGUI ] Mouse capture off
-00000338094i[XGUI ] Mouse capture off
-00000338095i[XGUI ] Mouse capture off
-00000338096i[XGUI ] Mouse capture off
-00000338097i[XGUI ] Mouse capture off
-00000338098i[XGUI ] Mouse capture off
-00000338099i[XGUI ] Mouse capture off
-00000338100i[XGUI ] Mouse capture off
-00000338101i[XGUI ] Mouse capture off
-00000338102i[XGUI ] Mouse capture off
-00000338125i[XGUI ] Mouse capture off
-00000338126i[XGUI ] Mouse capture off
-00000338136i[XGUI ] Mouse capture off
-00000338137i[XGUI ] Mouse capture off
-00000338147i[XGUI ] Mouse capture off
-00000338147i[XGUI ] Mouse capture off
-00000338147i[XGUI ] Mouse capture off
-00000338148i[XGUI ] Mouse capture off
-00000338158i[XGUI ] Mouse capture off
-00000338159i[XGUI ] Mouse capture off
-00000338160i[XGUI ] Mouse capture off
-00000338161i[XGUI ] Mouse capture off
-00000338162i[XGUI ] Mouse capture off
-00000338163i[XGUI ] Mouse capture off
-00000338164i[XGUI ] Mouse capture off
-00000338165i[XGUI ] Mouse capture off
-00000338166i[XGUI ] Mouse capture off
-00000338167i[XGUI ] Mouse capture off
-00000338168i[XGUI ] Mouse capture off
-00000338169i[XGUI ] Mouse capture off
-00000338170i[XGUI ] Mouse capture off
-00000338171i[XGUI ] Mouse capture off
-00000338172i[XGUI ] Mouse capture off
-00000338173i[XGUI ] Mouse capture off
-00000338174i[XGUI ] Mouse capture off
-00000338175i[XGUI ] Mouse capture off
-00000338227i[XGUI ] Mouse capture off
-00000338228i[XGUI ] Mouse capture off
-00000338229i[XGUI ] Mouse capture off
-00000338230i[XGUI ] Mouse capture off
-00000338231i[XGUI ] Mouse capture off
-00000338232i[XGUI ] Mouse capture off
-00000338233i[XGUI ] Mouse capture off
-00000338234i[XGUI ] Mouse capture off
-00000338235i[XGUI ] Mouse capture off
-00000338236i[XGUI ] Mouse capture off
-00000338237i[XGUI ] Mouse capture off
-00000338238i[XGUI ] Mouse capture off
-00000338239i[XGUI ] Mouse capture off
-00000338240i[XGUI ] Mouse capture off
-00000338241i[XGUI ] Mouse capture off
-00000338242i[XGUI ] Mouse capture off
-00000338243i[XGUI ] Mouse capture off
-00000338263i[XGUI ] Mouse capture off
-00000338794i[BIOS ] Starting rombios32
-00000339228i[BIOS ] Shutdown flag 0
-00000339823i[BIOS ] ram_size=0x02000000
-00000340000i[KBD  ] internal keyboard buffer full, ignoring scancode.(8f)
-00000340000i[KBD  ] internal keyboard buffer full, ignoring scancode.(38)
-00000340000i[KBD  ] internal keyboard buffer full, ignoring scancode.(8f)
-00000340000i[KBD  ] internal keyboard buffer full, ignoring scancode.(38)
-00000340000i[KBD  ] internal keyboard buffer full, ignoring scancode.(8f)
-00000340000i[KBD  ] internal keyboard buffer full, ignoring scancode.(38)
-00000340000i[KBD  ] internal keyboard buffer full, ignoring scancode.(8f)
-00000340000i[KBD  ] internal keyboard buffer full, ignoring scancode.(38)
-00000340000i[KBD  ] internal keyboard buffer full, ignoring scancode.(8f)
-00000340000i[KBD  ] internal keyboard buffer full, ignoring scancode.(38)
-00000340000i[KBD  ] internal keyboard buffer full, ignoring scancode.(8f)
-00000340000i[KBD  ] internal keyboard buffer full, ignoring scancode.(38)
-00000340000i[KBD  ] internal keyboard buffer full, ignoring scancode.(8f)
-00000340000i[KBD  ] internal keyboard buffer full, ignoring scancode.(38)
-00000340000i[KBD  ] internal keyboard buffer full, ignoring scancode.(8f)
-00000340000i[KBD  ] internal keyboard buffer full, ignoring scancode.(38)
-00000340000i[KBD  ] internal keyboard buffer full, ignoring scancode.(8f)
-00000340000i[KBD  ] internal keyboard buffer full, ignoring scancode.(38)
-00000340000i[KBD  ] internal keyboard buffer full, ignoring scancode.(8f)
-00000340000i[KBD  ] internal keyboard buffer full, ignoring scancode.(38)
-00000340000i[KBD  ] internal keyboard buffer full, ignoring scancode.(8f)
-00000340000i[KBD  ] internal keyboard buffer full, ignoring scancode.(38)
-00000340244i[BIOS ] ram_end=32MB
-00000380767i[BIOS ] Found 1 cpu(s)
-00000394954i[BIOS ] bios_table_addr: 0x000fa448 end=0x000fcc00
-00000722751i[PCI  ] i440FX PMC write to PAM register 59 (TLB Flush)
-00001050678i[P2I  ] PCI IRQ routing: PIRQA# set to 0x0b
-00001050697i[P2I  ] PCI IRQ routing: PIRQB# set to 0x09
-00001050716i[P2I  ] PCI IRQ routing: PIRQC# set to 0x0b
-00001050735i[P2I  ] PCI IRQ routing: PIRQD# set to 0x09
-00001050745i[P2I  ] write: ELCR2 = 0x0a
-00001051511i[BIOS ] PIIX3/PIIX4 init: elcr=00 0a
-00001059184i[BIOS ] PCI: bus=0 devfn=0x00: vendor_id=0x8086 device_id=0x1237 class=0x0600
-00001061454i[BIOS ] PCI: bus=0 devfn=0x08: vendor_id=0x8086 device_id=0x7000 class=0x0601
-00001063563i[BIOS ] PCI: bus=0 devfn=0x09: vendor_id=0x8086 device_id=0x7010 class=0x0101
-00001063792i[PIDE ] new BM-DMA address: 0xc000
-00001064409i[BIOS ] region 4: 0x0000c000
-00001066434i[BIOS ] PCI: bus=0 devfn=0x0b: vendor_id=0x8086 device_id=0x7113 class=0x0680
-00001066667i[ACPI ] new irq line = 11
-00001066679i[ACPI ] new irq line = 9
-00001066708i[ACPI ] new PM base address: 0xb000
-00001066722i[ACPI ] new SM base address: 0xb100
-00001066750i[PCI  ] setting SMRAM control register to 0x4a
-00001230841i[CPU0 ] Enter to System Management Mode
-00001230852i[CPU0 ] RSM: Resuming from System Management Mode
-00001394870i[PCI  ] setting SMRAM control register to 0x0a
-00001409763i[BIOS ] MP table addr=0x000fa520 MPC table addr=0x000fa450 size=0xc8
-00001411519i[BIOS ] SMBIOS table addr=0x000fa530
-00001411577i[MEM0 ] allocate_block: block=0x1f used 0x2 of 0x20
-00001413714i[BIOS ] ACPI tables: RSDP addr=0x000fa650 ACPI DATA addr=0x01ff0000 size=0xf72
-00001416911i[BIOS ] Firmware waking vector 0x1ff00cc
-00001418709i[PCI  ] i440FX PMC write to PAM register 59 (TLB Flush)
-00001419437i[BIOS ] bios_table_cur_addr: 0x000fa674
-00001419476i[XGUI ] Mouse capture off
-00001419477i[XGUI ] Mouse capture off
-00001419478i[XGUI ] Mouse capture off
-00001547054i[VBIOS] VGABios $Id: vgabios.c,v 1.75 2011/10/15 14:07:21 vruppert Exp $
-00001547125i[BXVGA] VBE known Display Interface b0c0
-00001547157i[BXVGA] VBE known Display Interface b0c5
-00001550082i[VBIOS] VBE Bios $Id: vbe.c,v 1.64 2011/07/19 18:25:05 vruppert Exp $
-00001600003i[XGUI ] charmap update. Font Height is 16
-00001762135i[XGUI ] charmap update. Font Height is 16
-00001762135i[XGUI ] Mouse capture off
-00001882248i[XGUI ] Mouse capture off
-00001882298i[XGUI ] Mouse capture off
-00001882342i[XGUI ] Mouse capture off
-00001883594i[XGUI ] Mouse capture off
-00001884000i[KBD  ] internal keyboard buffer full, ignoring scancode.(38)
-00001887046i[XGUI ] Mouse capture off
-00001887091i[XGUI ] Mouse capture off
-00001887488i[XGUI ] Mouse capture off
-00001887489i[XGUI ] Mouse capture off
-00001887490i[XGUI ] Mouse capture off
-00001888081i[XGUI ] Mouse capture off
-00013846731i[XGUI ] Mouse capture off
-00013846732i[XGUI ] Mouse capture off
-00014040330i[BIOS ] Booting from 0000:7c00
-00023597339i[BIOS ] int13_harddisk: function 41, unmapped device for ELDL=80
-00023601020i[BIOS ] int13_harddisk: function 08, unmapped device for ELDL=80
-00023604684i[BIOS ] *** int 15h function AX=00c0, BX=0000 not yet supported!
-00049704570i[MEM0 ] allocate_block: block=0x1 used 0x3 of 0x20
-00059473060i[XGUI ] Mouse capture off
-00059473061i[XGUI ] Mouse capture off
-00059473061i[XGUI ] Mouse capture off
-00059473062i[XGUI ] Mouse capture off
-00059473063i[XGUI ] Mouse capture off
-00059473064i[XGUI ] Mouse capture off
-00059473065i[XGUI ] Mouse capture off
-00059473066i[XGUI ] Mouse capture off
-00059473067i[XGUI ] Mouse capture off
-00059473068i[XGUI ] Mouse capture off
-00059473069i[XGUI ] Mouse capture off
-00059473070i[XGUI ] Mouse capture off
-00059473070i[XGUI ] Mouse capture off
-00059473070i[XGUI ] Mouse capture off
-00059476000i[KBD  ] internal keyboard buffer full, ignoring scancode.(38)
-00059476000i[KBD  ] internal keyboard buffer full, ignoring scancode.(8f)
-00059476000i[KBD  ] internal keyboard buffer full, ignoring scancode.(38)
-00059481142i[XGUI ] Mouse capture off
-00059481143i[XGUI ] Mouse capture off
-00059481144i[XGUI ] Mouse capture off
-00059481145i[XGUI ] Mouse capture off
-00059481146i[XGUI ] Mouse capture off
-00059481147i[XGUI ] Mouse capture off
-00059481148i[XGUI ] Mouse capture off
-00059481149i[XGUI ] Mouse capture off
-00059481150i[XGUI ] Mouse capture off
-00059481151i[XGUI ] Mouse capture off
-00059481152i[XGUI ] Mouse capture off
-00059481153i[XGUI ] Mouse capture off
-00059481154i[XGUI ] Mouse capture off
-00059481155i[XGUI ] Mouse capture off
-00059481156i[XGUI ] Mouse capture off
-00059481157i[XGUI ] Mouse capture off
-00059481157i[     ] dbg: Quit
-00059481157i[CPU0 ] CPU is in protected mode (active)
-00059481157i[CPU0 ] CS.mode = 32 bit
-00059481157i[CPU0 ] SS.mode = 32 bit
-00059481157i[CPU0 ] EFER   = 0x00000000
-00059481157i[CPU0 ] | EAX=00000002  EBX=0002d000  ECX=000b8000  EDX=000003d5
-00059481157i[CPU0 ] | ESP=00007fbc  EBP=00007ff8  ESI=00053c8c  EDI=00053c8d
-00059481157i[CPU0 ] | IOPL=0 id vip vif ac vm rf nt of df if tf sf ZF af PF cf
-00059481157i[CPU0 ] | SEG sltr(index|ti|rpl)     base    limit G D
-00059481157i[CPU0 ] |  CS:0008( 0001| 0|  0) 00000000 ffffffff 1 1
-00059481157i[CPU0 ] |  DS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-00059481157i[CPU0 ] |  SS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-00059481157i[CPU0 ] |  ES:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-00059481157i[CPU0 ] |  FS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-00059481157i[CPU0 ] |  GS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-00059481157i[CPU0 ] | EIP=00100106 (00100106)
-00059481157i[CPU0 ] | CR0=0x60000011 CR2=0x00000000
-00059481157i[CPU0 ] | CR3=0x00000000 CR4=0x00000000
-00059481157i[CMOS ] Last time is 1403084709 (Wed Jun 18 17:45:09 2014)
-00059481157i[XGUI ] Exit
-00059481157i[CTRL ] quit_sim called with exit code 0
+00000000000i[      ] Bochs x86 Emulator 2.6.5
+00000000000i[      ]   Built from SVN snapshot on June 1st, 2014
+00000000000i[      ] Compiled on Jun 22 2014 at 23:21:47
+00000000000i[      ] System configuration
+00000000000i[      ]   processors: 1 (cores=1, HT threads=1)
+00000000000i[      ]   A20 line support: yes
+00000000000i[      ] IPS is set to 4000000
+00000000000i[      ] CPU configuration
+00000000000i[      ]   SMP support: no
+00000000000i[      ]   level: 6
+00000000000i[      ]   APIC support: xapic
+00000000000i[      ]   FPU support: yes
+00000000000i[      ]   MMX support: yes
+00000000000i[      ]   3dnow! support: no
+00000000000i[      ]   SEP support: yes
+00000000000i[      ]   SIMD support: sse2
+00000000000i[      ]   XSAVE support: no 
+00000000000i[      ]   AES support: no
+00000000000i[      ]   SHA support: no
+00000000000i[      ]   MOVBE support: no
+00000000000i[      ]   ADX support: no
+00000000000i[      ]   x86-64 support: no
+00000000000i[      ]   MWAIT support: yes
+00000000000i[      ] Optimization configuration
+00000000000i[      ]   RepeatSpeedups support: no
+00000000000i[      ]   Fast function calls: no
+00000000000i[      ]   Handlers Chaining speedups: no
+00000000000i[      ] Devices configuration
+00000000000i[      ]   NE2000 support: no
+00000000000i[      ]   PCI support: yes, enabled=yes
+00000000000i[      ]   SB16 support: no
+00000000000i[      ]   USB support: no
+00000000000i[      ]   VGA extension support: vbe
+00000000000i[MEM0  ] allocated memory at 0x7f311abeb010. after alignment, vector=0x7f311abec000
+00000000000i[MEM0  ] 32.00MB
+00000000000i[MEM0  ] mem block size = 0x00100000, blocks=32
+00000000000i[MEM0  ] rom at 0xfffe0000/131072 ('/usr/local/share/bochs/BIOS-bochs-latest')
+00000000000i[PLUGIN] init_dev of 'pci' plugin device by virtual method
+00000000000i[DEV   ] i440FX PMC present at device 0, function 0
+00000000000i[PLUGIN] init_dev of 'pci2isa' plugin device by virtual method
+00000000000i[DEV   ] PIIX3 PCI-to-ISA bridge present at device 1, function 0
+00000000000i[PLUGIN] init_dev of 'cmos' plugin device by virtual method
+00000000000i[CMOS  ] Using local time for initial clock
+00000000000i[CMOS  ] Setting initial clock to: Mon Jun 23 01:16:51 2014 (time0=1403457411)
+00000000000i[PLUGIN] init_dev of 'dma' plugin device by virtual method
+00000000000i[DMA   ] channel 4 used by cascade
+00000000000i[PLUGIN] init_dev of 'pic' plugin device by virtual method
+00000000000i[PLUGIN] init_dev of 'pit' plugin device by virtual method
+00000000000i[PLUGIN] init_dev of 'vga' plugin device by virtual method
+00000000000i[MEM0  ] Register memory access handlers: 0x0000000a0000 - 0x0000000bffff
+00000000000i[VGA   ] interval=200000
+00000000000i[MEM0  ] Register memory access handlers: 0x0000e0000000 - 0x0000e0ffffff
+00000000000i[BXVGA ] VBE Bochs Display Extension Enabled
+00000000000i[XGUI  ] test_alloc_colors: 16 colors available out of 16 colors tried
+00000000000i[XGUI  ] font 8 wide x 16 high, display depth = 24
+00000000000i[MEM0  ] rom at 0xc0000/41472 ('/usr/local/share/bochs/VGABIOS-lgpl-latest')
+00000000000i[PLUGIN] init_dev of 'floppy' plugin device by virtual method
+00000000000i[DMA   ] channel 2 used by Floppy Drive
+00000000000i[FLOPPY] fd0: 'tool/floppy.img' ro=0, h=2,t=80,spt=18
+00000000000i[PLUGIN] init_dev of 'acpi' plugin device by virtual method
+00000000000i[DEV   ] ACPI Controller present at device 1, function 3
+00000000000i[PLUGIN] init_dev of 'ioapic' plugin device by virtual method
+00000000000i[IOAPIC] initializing I/O APIC
+00000000000i[MEM0  ] Register memory access handlers: 0x0000fec00000 - 0x0000fec00fff
+00000000000i[IOAPIC] IOAPIC enabled (base address = 0xfec00000)
+00000000000i[PLUGIN] init_dev of 'keyboard' plugin device by virtual method
+00000000000i[KBD   ] will paste characters every 400 keyboard ticks
+00000000000i[PLUGIN] init_dev of 'harddrv' plugin device by virtual method
+00000000000i[HD    ] Using boot sequence floppy, none, none
+00000000000i[HD    ] Floppy boot signature check is enabled
+00000000000i[PLUGIN] init_dev of 'pci_ide' plugin device by virtual method
+00000000000i[DEV   ] PIIX3 PCI IDE controller present at device 1, function 1
+00000000000i[PLUGIN] init_dev of 'unmapped' plugin device by virtual method
+00000000000i[PLUGIN] init_dev of 'biosdev' plugin device by virtual method
+00000000000i[PLUGIN] init_dev of 'speaker' plugin device by virtual method
+00000000000e[PCSPK ] Failed to open /dev/console: 权限不够
+00000000000e[PCSPK ] Deactivating beep on console
+00000000000i[PLUGIN] init_dev of 'extfpuirq' plugin device by virtual method
+00000000000i[PLUGIN] init_dev of 'parallel' plugin device by virtual method
+00000000000i[PAR   ] parallel port 1 at 0x0378 irq 7
+00000000000i[PLUGIN] init_dev of 'serial' plugin device by virtual method
+00000000000i[SER   ] com1 at 0x03f8 irq 4 (mode: null)
+00000000000i[PLUGIN] init_dev of 'iodebug' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'pci' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'pci2isa' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'cmos' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'dma' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'pic' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'pit' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'vga' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'floppy' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'unmapped' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'biosdev' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'speaker' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'extfpuirq' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'parallel' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'serial' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'iodebug' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'acpi' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'ioapic' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'keyboard' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'harddrv' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'pci_ide' plugin device by virtual method
+00000000000i[SYS   ] bx_pc_system_c::Reset(HARDWARE) called
+00000000000i[CPU0  ] cpu hardware reset
+00000000000i[APIC0 ] allocate APIC id=0 (MMIO enabled) to 0x0000fee00000
+00000000000i[CPU0  ] CPUID[0x00000000]: 00000005 756e6547 6c65746e 49656e69
+00000000000i[CPU0  ] CPUID[0x00000001]: 00000633 00010800 00000008 1fcbfbff
+00000000000i[CPU0  ] CPUID[0x00000002]: 00410601 00000000 00000000 00000000
+00000000000i[CPU0  ] CPUID[0x00000003]: 00000000 00000000 00000000 00000000
+00000000000i[CPU0  ] CPUID[0x00000004]: 00000000 00000000 00000000 00000000
+00000000000i[CPU0  ] CPUID[0x00000005]: 00000040 00000040 00000003 00000020
+00000000000i[CPU0  ] CPUID[0x80000000]: 80000008 00000000 00000000 00000000
+00000000000i[CPU0  ] CPUID[0x80000001]: 00000000 00000000 00000000 00000000
+00000000000i[CPU0  ] CPUID[0x80000002]: 20202020 20202020 20202020 6e492020
+00000000000i[CPU0  ] CPUID[0x80000003]: 286c6574 50202952 69746e65 52286d75
+00000000000i[CPU0  ] CPUID[0x80000004]: 20342029 20555043 20202020 00202020
+00000000000i[CPU0  ] CPUID[0x80000005]: 01ff01ff 01ff01ff 40020140 40020140
+00000000000i[CPU0  ] CPUID[0x80000006]: 00000000 42004200 02008140 00000000
+00000000000i[CPU0  ] CPUID[0x80000007]: 00000000 00000000 00000000 00000000
+00000000000i[CPU0  ] CPUID[0x80000008]: 00002028 00000000 00000000 00000000
+00000000000i[PLUGIN] reset of 'pci' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'pci2isa' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'cmos' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'dma' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'pic' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'pit' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'vga' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'floppy' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'acpi' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'ioapic' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'keyboard' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'harddrv' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'pci_ide' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'unmapped' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'biosdev' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'speaker' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'extfpuirq' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'parallel' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'serial' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'iodebug' plugin device by virtual method
+00000000000i[XGUI  ] Mouse capture off
+00000000000i[      ] set SIGINT handler to bx_debug_ctrlc_handler
+00000000000i[XGUI  ] Mouse capture off
+00000004661i[BIOS  ] $Revision: 11761 $ $Date: 2013-08-02 17:59:49 +0200 (Fr, 02. Aug 2013) $
+00000320070i[KBD   ] reset-disable command received
+00000322804i[BIOS  ] Starting rombios32
+00000323238i[BIOS  ] Shutdown flag 0
+00000323833i[BIOS  ] ram_size=0x02000000
+00000324254i[BIOS  ] ram_end=32MB
+00000364747i[BIOS  ] Found 1 cpu(s)
+00000378944i[BIOS  ] bios_table_addr: 0x000fa468 end=0x000fcc00
+00000706741i[PCI   ] i440FX PMC write to PAM register 59 (TLB Flush)
+00001034668i[P2ISA ] PCI IRQ routing: PIRQA# set to 0x0b
+00001034687i[P2ISA ] PCI IRQ routing: PIRQB# set to 0x09
+00001034706i[P2ISA ] PCI IRQ routing: PIRQC# set to 0x0b
+00001034725i[P2ISA ] PCI IRQ routing: PIRQD# set to 0x09
+00001034735i[P2ISA ] write: ELCR2 = 0x0a
+00001035501i[BIOS  ] PIIX3/PIIX4 init: elcr=00 0a
+00001043174i[BIOS  ] PCI: bus=0 devfn=0x00: vendor_id=0x8086 device_id=0x1237 class=0x0600
+00001045444i[BIOS  ] PCI: bus=0 devfn=0x08: vendor_id=0x8086 device_id=0x7000 class=0x0601
+00001047553i[BIOS  ] PCI: bus=0 devfn=0x09: vendor_id=0x8086 device_id=0x7010 class=0x0101
+00001047782i[PIDE  ] new BM-DMA address: 0xc000
+00001048399i[BIOS  ] region 4: 0x0000c000
+00001050424i[BIOS  ] PCI: bus=0 devfn=0x0b: vendor_id=0x8086 device_id=0x7113 class=0x0680
+00001050657i[ACPI  ] new irq line = 11
+00001050669i[ACPI  ] new irq line = 9
+00001050698i[ACPI  ] new PM base address: 0xb000
+00001050712i[ACPI  ] new SM base address: 0xb100
+00001050740i[PCI   ] setting SMRAM control register to 0x4a
+00001214831i[CPU0  ] Enter to System Management Mode
+00001214842i[CPU0  ] RSM: Resuming from System Management Mode
+00001378860i[PCI   ] setting SMRAM control register to 0x0a
+00001393753i[BIOS  ] MP table addr=0x000fa540 MPC table addr=0x000fa470 size=0xc8
+00001395509i[BIOS  ] SMBIOS table addr=0x000fa550
+00001397704i[BIOS  ] ACPI tables: RSDP addr=0x000fa670 ACPI DATA addr=0x01ff0000 size=0xf72
+00001400901i[BIOS  ] Firmware waking vector 0x1ff00cc
+00001402699i[PCI   ] i440FX PMC write to PAM register 59 (TLB Flush)
+00001403427i[BIOS  ] bios_table_cur_addr: 0x000fa694
+00001531044i[VBIOS ] VGABios $Id: vgabios.c,v 1.76 2013/02/10 08:07:03 vruppert Exp $
+00001531115i[BXVGA ] VBE known Display Interface b0c0
+00001531147i[BXVGA ] VBE known Display Interface b0c5
+00001534072i[VBIOS ] VBE Bios $Id: vbe.c,v 1.64 2011/07/19 18:25:05 vruppert Exp $
+00001600003i[XGUI  ] charmap update. Font Height is 16
+00014040200i[BIOS  ] Booting from 0000:7c00
+00023597209i[BIOS  ] int13_harddisk: function 41, unmapped device for ELDL=80
+00023600890i[BIOS  ] int13_harddisk: function 08, unmapped device for ELDL=80
+00023604554i[BIOS  ] *** int 15h function AX=00c0, BX=0000 not yet supported!
+00096432568i[CPU0  ] LOCK prefix unallowed (op1=0x83, modrm=0x7d)
+00096448459e[CPU0  ] fetch_raw_descriptor: GDT: index (ebdf) 1d7b > limit (27)
+00096452843e[CPU0  ] fetch_raw_descriptor: GDT: index (37) 6 > limit (27)
+00096457227e[CPU0  ] load_seg_reg(ES, 0x78cc): invalid segment
+00096466001e[CPU0  ] fetch_raw_descriptor: GDT: index (70e7) e1c > limit (27)
+00096470385e[CPU0  ] fetch_raw_descriptor: GDT: index (c0c7) 1818 > limit (27)
+00096474769e[CPU0  ] fetch_raw_descriptor: GDT: index (37) 6 > limit (27)
+00096479153e[CPU0  ] fetch_raw_descriptor: GDT: index (301f) 603 > limit (27)
+00096487926e[CPU0  ] fetch_raw_descriptor: GDT: index (ff1f) 1fe3 > limit (27)
+00096492309e[CPU0  ] load_seg_reg(ES, 0x78cc): invalid segment
+00096506396e[CPU0  ] load_seg_reg(ES, 0x03f5): not data or readable code
+00096520733e[CPU0  ] fetch_raw_descriptor: GDT: index (8907) 1120 > limit (27)
+00096529505e[CPU0  ] fetch_raw_descriptor: GDT: index (e477) 1c8e > limit (27)
+00096534478e[CPU0  ] fetch_raw_descriptor: GDT: index (2077) 40e > limit (27)
+00096538862e[CPU0  ] load_seg_reg(ES, 0x0a65): invalid segment
+00096543330e[CPU0  ] fetch_raw_descriptor: GDT: index (5027) a04 > limit (27)
+00096547714e[CPU0  ] fetch_raw_descriptor: GDT: index (2527) 4a4 > limit (27)
+00096552098e[CPU0  ] load_seg_reg(ES, 0x6174): invalid segment
+00096556482e[CPU0  ] fetch_raw_descriptor: GDT: index (2007) 400 > limit (27)
+00096560864e[CPU0  ] load_seg_reg(ES, 0x2e6d): invalid segment
+00096565246e[CPU0  ] load_seg_reg(ES, 0x7465): segment not present
+00096569628e[CPU0  ] load_seg_reg(ES, 0x2074): invalid segment
+00096574010e[CPU0  ] load_seg_reg(ES, 0x636e): invalid segment
+00096578389e[CPU0  ] fetch_raw_descriptor: GDT: index (7327) e64 > limit (27)
+00096582768e[CPU0  ] fetch_raw_descriptor: GDT: index (a7f) 14f > limit (27)
+00096587147e[CPU0  ] load_seg_reg(ES, 0x7465): segment not present
+00096591526e[CPU0  ] fetch_raw_descriptor: GDT: index (6b27) d64 > limit (27)
+00096595905e[CPU0  ] load_seg_reg(ES, 0x756f): RPL & CPL must be <= DPL
+00096600284e[CPU0  ] load_seg_reg(ES, 0x685f): invalid segment
+00096604663e[CPU0  ] load_seg_reg(ES, 0x3025): not data or readable code
+00096609042e[CPU0  ] fetch_raw_descriptor: GDT: index (7227) e44 > limit (27)
+00096613421e[CPU0  ] load_seg_reg(ES, 0x206e): invalid segment
+00096617800e[CPU0  ] load_seg_reg(ES, 0x000a): RPL & CPL must be <= DPL
+00096622179e[CPU0  ] fetch_raw_descriptor: GDT: index (6e6f) dcd > limit (27)
+00096626558e[CPU0  ] fetch_raw_descriptor: GDT: index (6b77) d6e > limit (27)
+00096630937e[CPU0  ] load_seg_reg(ES, 0x202c): invalid segment
+00096635316e[CPU0  ] load_seg_reg(ES, 0x6234): invalid segment
+00096639695e[CPU0  ] fetch_raw_descriptor: GDT: index (7477) e8e > limit (27)
+00096644074e[CPU0  ] fetch_raw_descriptor: GDT: index (6977) d2e > limit (27)
+00096648453e[CPU0  ] load_seg_reg(ES, 0x6e6f): not data or readable code
+00096652832e[CPU0  ] fetch_raw_descriptor: GDT: index (6d67) dac > limit (27)
+00096657211e[CPU0  ] load_seg_reg(ES, 0x7474): segment not present
+00096661590e[CPU0  ] load_seg_reg(ES, 0x2064): invalid segment
+00096665969e[CPU0  ] load_seg_reg(ES, 0x0a2e): invalid segment
+00096670348e[CPU0  ] fetch_raw_descriptor: GDT: index (a7f) 14f > limit (27)
+00096674727e[CPU0  ] fetch_raw_descriptor: GDT: index (636f) c6d > limit (27)
+00096679106e[CPU0  ] load_seg_reg(ES, 0x7665): invalid segment
+00107397845i[CPU0  ] LOCK prefix unallowed (op1=0x83, modrm=0x7d)
+00107402252e[CPU0  ] fetch_raw_descriptor: GDT: index (3e87) 7d0 > limit (27)
+00107406715e[CPU0  ] fetch_raw_descriptor: GDT: index (a18f) 1431 > limit (27)
+00107411094e[CPU0  ] fetch_raw_descriptor: GDT: index (c57) 18a > limit (27)
+00107415473e[CPU0  ] fetch_raw_descriptor: GDT: index (f867) 1f0c > limit (27)
+00107419852e[CPU0  ] fetch_raw_descriptor: GDT: index (eef) 1dd > limit (27)
+00107424231e[CPU0  ] fetch_raw_descriptor: GDT: index (8957) 112a > limit (27)
+00107437464e[CPU0  ] load_seg_reg(ES, 0x3575): not data or readable code
+00107441843e[CPU0  ] load_seg_reg(ES, 0xcb9d): not data or readable code
+00107446222e[CPU0  ] fetch_raw_descriptor: GDT: index (e9ff) 1d3f > limit (27)
+00107450601e[CPU0  ] load_seg_reg(ES, 0xf4ff): RPL & CPL must be <= DPL
+00107454980e[CPU0  ] fetch_raw_descriptor: GDT: index (f007) 1e00 > limit (27)
+00107459359e[CPU0  ] fetch_raw_descriptor: GDT: index (b7) 16 > limit (27)
+00107463738e[CPU0  ] fetch_raw_descriptor: GDT: index (bf) 17 > limit (27)
+00107468117e[CPU0  ] load_seg_reg(ES, 0xf99d): invalid segment
+00107472496e[CPU0  ] fetch_raw_descriptor: GDT: index (9a9f) 1353 > limit (27)
+00107476875e[CPU0  ] load_seg_reg(ES, 0x7375): segment not present
+00107481254e[CPU0  ] fetch_raw_descriptor: GDT: index (c037) 1806 > limit (27)
+00107485633e[CPU0  ] fetch_raw_descriptor: GDT: index (268f) 4d1 > limit (27)
+00107490012e[CPU0  ] fetch_raw_descriptor: GDT: index (fed7) 1fda > limit (27)
+00107494391e[CPU0  ] fetch_raw_descriptor: GDT: index (8807) 1100 > limit (27)
+00107498770e[CPU0  ] load_seg_reg(ES, 0x23f4): not data or readable code
+00107503233e[CPU0  ] fetch_raw_descriptor: GDT: index (74a7) e94 > limit (27)
+00107507612e[CPU0  ] load_seg_reg(ES, 0xc0c4): not data or readable code
+00107511991e[CPU0  ] fetch_raw_descriptor: GDT: index (f0bf) 1e17 > limit (27)
+00107516370e[CPU0  ] fetch_raw_descriptor: GDT: index (38e7) 71c > limit (27)
+00107520749e[CPU0  ] load_seg_reg(ES, 0x1eff): invalid segment
+00107525128e[CPU0  ] load_seg_reg(ES, 0x04c4): invalid segment
+00107529507e[CPU0  ] load_seg_reg(ES, 0x840f): invalid segment
+00107533886e[CPU0  ] fetch_raw_descriptor: GDT: index (916f) 122d > limit (27)
+00107538265e[CPU0  ] load_seg_reg(ES, 0xff06): not data or readable code
+00107542644e[CPU0  ] fetch_raw_descriptor: GDT: index (8a07) 1140 > limit (27)
+00107551408e[CPU0  ] fetch_raw_descriptor: GDT: index (89c7) 1138 > limit (27)
+00107555787e[CPU0  ] load_seg_reg(ES, 0x0e46): not data or readable code
+00107560166e[CPU0  ] load_seg_reg(ES, 0xb80f): RPL & CPL must be <= DPL
+00107564545e[CPU0  ] load_seg_reg(ES, 0x0e46): not data or readable code
+00107568924e[CPU0  ] load_seg_reg(ES, 0x0e46): not data or readable code
+00107573303e[CPU0  ] fetch_raw_descriptor: GDT: index (6ea7) dd4 > limit (27)
+00107577682e[CPU0  ] fetch_raw_descriptor: GDT: index (4bf) 97 > limit (27)
+00107582061e[CPU0  ] fetch_raw_descriptor: GDT: index (ffff) 1fff > limit (27)
+00107586440e[CPU0  ] fetch_raw_descriptor: GDT: index (c487) 1890 > limit (27)
+00107590819e[CPU0  ] fetch_raw_descriptor: GDT: index (5357) a6a > limit (27)
+00107595198e[CPU0  ] fetch_raw_descriptor: GDT: index (799f) f33 > limit (27)
+00107599577e[CPU0  ] load_seg_reg(ES, 0x8afc): not data or readable code
+00107603956e[CPU0  ] load_seg_reg(ES, 0x010c): not data or readable code
+00107608335e[CPU0  ] fetch_raw_descriptor: GDT: index (75c7) eb8 > limit (27)
+00107612714e[CPU0  ] fetch_raw_descriptor: GDT: index (e437) 1c86 > limit (27)
+00107617093e[CPU0  ] load_seg_reg(ES, 0x05e4): invalid segment
+00107621472e[CPU0  ] load_seg_reg(ES, 0x2c7e): segment not present
+00107625851e[CPU0  ] load_seg_reg(ES, 0x4444): not data or readable code
+00107630230e[CPU0  ] load_seg_reg(ES, 0x1d77): invalid segment
+00107634609e[CPU0  ] load_seg_reg(ES, 0x4f3d): invalid segment
+00107638988e[CPU0  ] load_seg_reg(ES, 0x1975): not data or readable code
+00107643367e[CPU0  ] load_seg_reg(ES, 0x1646): invalid segment
+00107647746e[CPU0  ] fetch_raw_descriptor: GDT: index (ebef) 1d7d > limit (27)
+00107652125e[CPU0  ] fetch_raw_descriptor: GDT: index (ec8f) 1d91 > limit (27)
+00107656504e[CPU0  ] fetch_raw_descriptor: GDT: index (e8d7) 1d1a > limit (27)
+00107660883e[CPU0  ] load_seg_reg(ES, 0x5dec): not data or readable code
+00107665262e[CPU0  ] load_seg_reg(ES, 0xf146): invalid segment
+00107669641e[CPU0  ] fetch_raw_descriptor: GDT: index (e437) 1c86 > limit (27)
+00107674020e[CPU0  ] load_seg_reg(ES, 0x0c1c): invalid segment
+00107678399e[CPU0  ] fetch_raw_descriptor: GDT: index (e437) 1c86 > limit (27)
+00107682778e[CPU0  ] fetch_raw_descriptor: GDT: index (8777) 10ee > limit (27)
+00107687157e[CPU0  ] fetch_raw_descriptor: GDT: index (8bf) 117 > limit (27)
+00107691536e[CPU0  ] fetch_raw_descriptor: GDT: index (468f) 8d1 > limit (27)
+00107695915e[CPU0  ] fetch_raw_descriptor: GDT: index (4b7) 96 > limit (27)
+00107700294e[CPU0  ] load_seg_reg(ES, 0x1246): invalid segment
+00107704673e[CPU0  ] fetch_raw_descriptor: GDT: index (ec8f) 1d91 > limit (27)
+00107709052e[CPU0  ] load_seg_reg(ES, 0xec46): invalid segment
+00107713431e[CPU0  ] fetch_raw_descriptor: GDT: index (8af7) 115e > limit (27)
+00107717810e[CPU0  ] fetch_raw_descriptor: GDT: index (e857) 1d0a > limit (27)
+00107722189e[CPU0  ] fetch_raw_descriptor: GDT: index (5007) a00 > limit (27)
+00107726568e[CPU0  ] fetch_raw_descriptor: GDT: index (e437) 1c86 > limit (27)
+00107730947e[CPU0  ] fetch_raw_descriptor: GDT: index (8be7) 117c > limit (27)
+00107735326e[CPU0  ] fetch_raw_descriptor: GDT: index (e6ef) 1cdd > limit (27)
+00107739705e[CPU0  ] fetch_raw_descriptor: GDT: index (8907) 1120 > limit (27)
+00107744084e[CPU0  ] load_seg_reg(ES, 0x1c46): not data or readable code
+00107752933e[CPU0  ] load_seg_reg(ES, 0x02e4): invalid segment
+00107757313e[CPU0  ] fetch_raw_descriptor: GDT: index (e857) 1d0a > limit (27)
+00107761693e[CPU0  ] fetch_raw_descriptor: GDT: index (468f) 8d1 > limit (27)
+00107766073e[CPU0  ] fetch_raw_descriptor: GDT: index (3aef) 75d > limit (27)
+00107770453e[CPU0  ] fetch_raw_descriptor: GDT: index (cc7) 198 > limit (27)
+00107774833e[CPU0  ] fetch_raw_descriptor: GDT: index (4b7) 96 > limit (27)
+00107779213e[CPU0  ] fetch_raw_descriptor: GDT: index (ec8f) 1d91 > limit (27)
+00107783593e[CPU0  ] load_seg_reg(ES, 0x8a04): invalid segment
+00107787973e[CPU0  ] load_seg_reg(ES, 0x0c1c): invalid segment
+00107792353e[CPU0  ] load_seg_reg(ES, 0x891c): not data or readable code
+00107796733e[CPU0  ] fetch_raw_descriptor: GDT: index (1bf) 37 > limit (27)
+00107801113e[CPU0  ] load_seg_reg(ES, 0x0e75): invalid segment
+00107805493e[CPU0  ] load_seg_reg(ES, 0xff46): segment not present
+00107809873e[CPU0  ] fetch_raw_descriptor: GDT: index (b80f) 1701 > limit (27)
+00107814253e[CPU0  ] fetch_raw_descriptor: GDT: index (468f) 8d1 > limit (27)
+00107818633e[CPU0  ] load_seg_reg(ES, 0x4444): not data or readable code
+00107823013e[CPU0  ] load_seg_reg(ES, 0x8aff): not data or readable code
+00107827393e[CPU0  ] fetch_raw_descriptor: GDT: index (25b7) 4b6 > limit (27)
+00107831773e[CPU0  ] fetch_raw_descriptor: GDT: index (ec8f) 1d91 > limit (27)
+00107836153e[CPU0  ] fetch_raw_descriptor: GDT: index (3157) 62a > limit (27)
+00107840533e[CPU0  ] fetch_raw_descriptor: GDT: index (297f) 52f > limit (27)
+00107844913e[CPU0  ] fetch_raw_descriptor: GDT: index (7fef) ffd > limit (27)
+00107849293e[CPU0  ] fetch_raw_descriptor: GDT: index (eb17) 1d62 > limit (27)
+00107853673e[CPU0  ] load_seg_reg(ES, 0x4444): not data or readable code
+00107858053e[CPU0  ] load_seg_reg(ES, 0x08c4): not data or readable code
+00107862433e[CPU0  ] load_seg_reg(ES, 0xf046): invalid segment
+00107866813e[CPU0  ] load_seg_reg(ES, 0xe846): invalid segment
+00107871193e[CPU0  ] fetch_raw_descriptor: GDT: index (838f) 1071 > limit (27)
+00107875573e[CPU0  ] fetch_raw_descriptor: GDT: index (8d57) 11aa > limit (27)
+00107875604e[CPU0  ] call_protected(): gate.type(11) unsupported
+00107879984e[CPU0  ] fetch_raw_descriptor: GDT: index (53df) a7b > limit (27)
+00107884364e[CPU0  ] load_seg_reg(ES, 0x8bdc): not data or readable code
+00107888744e[CPU0  ] load_seg_reg(ES, 0x04d7): not data or readable code
+00107893124e[CPU0  ] fetch_raw_descriptor: GDT: index (468f) 8d1 > limit (27)
+00107897504e[CPU0  ] fetch_raw_descriptor: GDT: index (607) c0 > limit (27)
+00107901884e[CPU0  ] load_seg_reg(ES, 0x1646): invalid segment
+00107906264e[CPU0  ] fetch_raw_descriptor: GDT: index (75c7) eb8 > limit (27)
+00107910644e[CPU0  ] fetch_raw_descriptor: GDT: index (890f) 1121 > limit (27)
+00107915024e[CPU0  ] load_seg_reg(ES, 0xfe76): not data or readable code
+00107919404e[CPU0  ] load_seg_reg(ES, 0x0147): not data or readable code
+00107923784e[CPU0  ] load_seg_reg(ES, 0x1e46): invalid segment
+00107928164e[CPU0  ] fetch_raw_descriptor: GDT: index (3977) 72e > limit (27)
+00107932544e[CPU0  ] fetch_raw_descriptor: GDT: index (d13f) 1a27 > limit (27)
+00107936924e[CPU0  ] load_seg_reg(ES, 0x8906): RPL & CPL must be <= DPL
+00107937002i[CPU0  ] LOCK prefix unallowed (op1=0x83, modrm=0x7d)
+00107941388e[CPU0  ] fetch_raw_descriptor: GDT: index (831f) 1063 > limit (27)
+00107945768e[CPU0  ] load_seg_reg(ES, 0x99d6): not data or readable code
+00107950148e[CPU0  ] fetch_raw_descriptor: GDT: index (e857) 1d0a > limit (27)
+00107954528e[CPU0  ] fetch_raw_descriptor: GDT: index (8d07) 11a0 > limit (27)
+00107958908e[CPU0  ] fetch_raw_descriptor: GDT: index (e08f) 1c11 > limit (27)
+00107963288e[CPU0  ] load_seg_reg(ES, 0x0c05): not data or readable code
+00107967668e[CPU0  ] fetch_raw_descriptor: GDT: index (467) 8c > limit (27)
+00107972132e[CPU0  ] fetch_raw_descriptor: GDT: index (74bf) e97 > limit (27)
+00107976512e[CPU0  ] fetch_raw_descriptor: GDT: index (596f) b2d > limit (27)
+00107980892e[CPU0  ] fetch_raw_descriptor: GDT: index (d0a7) 1a14 > limit (27)
+00107985272e[CPU0  ] load_seg_reg(ES, 0x00c4): not data or readable code
+00107989652e[CPU0  ] load_seg_reg(ES, 0x0c46): invalid segment
+00107994032e[CPU0  ] fetch_raw_descriptor: GDT: index (c037) 1806 > limit (27)
+00107998412e[CPU0  ] fetch_raw_descriptor: GDT: index (b7ef) 16fd > limit (27)
+00108002792e[CPU0  ] fetch_raw_descriptor: GDT: index (bb57) 176a > limit (27)
+00108007172e[CPU0  ] load_seg_reg(ES, 0x0676): invalid segment
+00108011552e[CPU0  ] load_seg_reg(ES, 0xfc46): invalid segment
+00108016016e[CPU0  ] load_seg_reg(ES, 0x4e9f): invalid segment
+00108020396e[CPU0  ] load_seg_reg(ES, 0x2d74): invalid segment
+00108029163e[CPU0  ] fetch_raw_descriptor: GDT: index (e8df) 1d1b > limit (27)
+00108033544e[CPU0  ] load_seg_reg(ES, 0xdd46): not data or readable code
+00108037925e[CPU0  ] fetch_raw_descriptor: GDT: index (463f) 8c7 > limit (27)
+00108042306e[CPU0  ] load_seg_reg(ES, 0x8b07): RPL & CPL must be <= DPL
+00108046687e[CPU0  ] fetch_raw_descriptor: GDT: index (5bef) b7d > limit (27)
+00108051068e[CPU0  ] load_seg_reg(ES, 0x1846): invalid segment
+00108055449e[CPU0  ] fetch_raw_descriptor: GDT: index (728f) e51 > limit (27)
+00108059830e[CPU0  ] fetch_raw_descriptor: GDT: index (49b7) 936 > limit (27)
+00108064211e[CPU0  ] load_seg_reg(ES, 0x4277): invalid segment
+00108068592e[CPU0  ] fetch_raw_descriptor: GDT: index (478f) 8f1 > limit (27)
+00108072973e[CPU0  ] fetch_raw_descriptor: GDT: index (8b2f) 1165 > limit (27)
+00108077354e[CPU0  ] fetch_raw_descriptor: GDT: index (41b7) 836 > limit (27)
+00108081735e[CPU0  ] load_seg_reg(ES, 0x5024): invalid segment
+00108086116e[CPU0  ] fetch_raw_descriptor: GDT: index (53a7) a74 > limit (27)
+00108090497e[CPU0  ] fetch_raw_descriptor: GDT: index (4aa7) 954 > limit (27)
+00108094878e[CPU0  ] load_seg_reg(ES, 0xdc46): invalid segment
+00108099259e[CPU0  ] load_seg_reg(ES, 0xe9f7): RPL & CPL must be <= DPL
+00108103640e[CPU0  ] load_seg_reg(ES, 0xa616): invalid segment
+00108108021e[CPU0  ] fetch_raw_descriptor: GDT: index (ffff) 1fff > limit (27)
+00108112402e[CPU0  ] load_seg_reg(ES, 0x0004): not data or readable code
+00108116783e[CPU0  ] load_seg_reg(ES, 0xe646): RPL & CPL must be <= DPL
+00108121164e[CPU0  ] load_seg_reg(ES, 0xfa5e): segment not present
+00108125545e[CPU0  ] fetch_raw_descriptor: GDT: index (8bc7) 1178 > limit (27)
+00108129926e[CPU0  ] load_seg_reg(ES, 0xb004): invalid segment
+00108134307e[CPU0  ] load_seg_reg(ES, 0xc084): segment not present
+00108138688e[CPU0  ] load_seg_reg(ES, 0xa0fc): invalid segment
+00108143069e[CPU0  ] load_seg_reg(ES, 0x5dec): not data or readable code
+00108143125i[CPU0  ] LOCK prefix unallowed (op1=0x83, modrm=0x7d)
+00108147534e[CPU0  ] load_seg_reg(ES, 0x01af): not data or readable code
+00108151999e[CPU0  ] fetch_raw_descriptor: GDT: index (8a07) 1140 > limit (27)
+00108156380e[CPU0  ] load_seg_reg(ES, 0x0824): invalid segment
+00108160761e[CPU0  ] fetch_raw_descriptor: GDT: index (468f) 8d1 > limit (27)
+00108165142e[CPU0  ] fetch_raw_descriptor: GDT: index (a2ff) 145f > limit (27)
+00108169523e[CPU0  ] load_seg_reg(ES, 0x1c75): not data or readable code
+00108173904e[CPU0  ] fetch_raw_descriptor: GDT: index (468f) 8d1 > limit (27)
+00108178285e[CPU0  ] load_seg_reg(ES, 0xfc46): invalid segment
+00108187053e[CPU0  ] fetch_raw_descriptor: GDT: index (8807) 1100 > limit (27)
+00108191434e[CPU0  ] fetch_raw_descriptor: GDT: index (ec8f) 1d91 > limit (27)
+00108195815e[CPU0  ] load_seg_reg(ES, 0x04c4): invalid segment
+00108200196e[CPU0  ] fetch_raw_descriptor: GDT: index (64bf) c97 > limit (27)
+00108204577e[CPU0  ] fetch_raw_descriptor: GDT: index (20bf) 417 > limit (27)
+00108208958e[CPU0  ] load_seg_reg(ES, 0xb40e): not data or readable code
+00108213339e[CPU0  ] fetch_raw_descriptor: GDT: index (bb17) 1762 > limit (27)
+00108217720e[CPU0  ] fetch_raw_descriptor: GDT: index (40ff) 81f > limit (27)
+00108222101e[CPU0  ] load_seg_reg(ES, 0x8955): not data or readable code
+00108226482e[CPU0  ] load_seg_reg(ES, 0x50e4): invalid segment
+00108230863e[CPU0  ] load_seg_reg(ES, 0x8bfd): invalid segment
+00108235244e[CPU0  ] fetch_raw_descriptor: GDT: index (c48f) 1891 > limit (27)
+00108239625e[CPU0  ] load_seg_reg(ES, 0xb2ad): invalid segment
+00108244006e[CPU0  ] fetch_raw_descriptor: GDT: index (468f) 8d1 > limit (27)
+00108248387e[CPU0  ] fetch_raw_descriptor: GDT: index (8907) 1120 > limit (27)
+00108252768e[CPU0  ] load_seg_reg(ES, 0x3007): RPL & CPL must be <= DPL
+00108257149e[CPU0  ] load_seg_reg(ES, 0xff46): segment not present
+00108261530e[CPU0  ] load_seg_reg(ES, 0x04c4): invalid segment
+00108265911e[CPU0  ] fetch_raw_descriptor: GDT: index (b857) 170a > limit (27)
+00108270292e[CPU0  ] fetch_raw_descriptor: GDT: index (b857) 170a > limit (27)
+00108274673e[CPU0  ] load_seg_reg(ES, 0x1c46): not data or readable code
+00108283441e[CPU0  ] fetch_raw_descriptor: GDT: index (24ef) 49d > limit (27)
+00108287822e[CPU0  ] fetch_raw_descriptor: GDT: index (468f) 8d1 > limit (27)
+00108292203e[CPU0  ] fetch_raw_descriptor: GDT: index (bbc7) 1778 > limit (27)
+00108296584e[CPU0  ] fetch_raw_descriptor: GDT: index (3157) 62a > limit (27)
+00108305352e[CPU0  ] load_seg_reg(ES, 0xe914): segment not present
+00108309733e[CPU0  ] load_seg_reg(ES, 0x31e4): segment not present
+00108314114e[CPU0  ] load_seg_reg(ES, 0x8bfc): invalid segment
+00108318495e[CPU0  ] fetch_raw_descriptor: GDT: index (107) 20 > limit (27)
+00108322876e[CPU0  ] load_seg_reg(ES, 0xb556): not data or readable code
+00108327257e[CPU0  ] load_seg_reg(ES, 0x850f): not data or readable code
+00108331638e[CPU0  ] fetch_raw_descriptor: GDT: index (468f) 8d1 > limit (27)
+00108336019e[CPU0  ] fetch_raw_descriptor: GDT: index (3017) 602 > limit (27)
+00108340400e[CPU0  ] fetch_raw_descriptor: GDT: index (468f) 8d1 > limit (27)
+00108344781e[CPU0  ] load_seg_reg(ES, 0x7707): invalid segment
+00108349162e[CPU0  ] fetch_raw_descriptor: GDT: index (85ff) 10bf > limit (27)
+00108353543e[CPU0  ] load_seg_reg(ES, 0x0007): not data or readable code
+00108357924e[CPU0  ] load_seg_reg(ES, 0x4444): not data or readable code
+00108362305e[CPU0  ] fetch_raw_descriptor: GDT: index (468f) 8d1 > limit (27)
+00108366686e[CPU0  ] load_seg_reg(ES, 0xf446): segment not present
+00108371067e[CPU0  ] load_seg_reg(ES, 0x440e): not data or readable code
+00108375448e[CPU0  ] load_seg_reg(ES, 0x1846): invalid segment
+00108379829e[CPU0  ] fetch_raw_descriptor: GDT: index (75c7) eb8 > limit (27)
+00108384210e[CPU0  ] load_seg_reg(ES, 0x0fd4): invalid segment
+00108388591e[CPU0  ] fetch_raw_descriptor: GDT: index (31ef) 63d > limit (27)
+00108392972e[CPU0  ] fetch_raw_descriptor: GDT: index (e827) 1d04 > limit (27)
+00108397353e[CPU0  ] fetch_raw_descriptor: GDT: index (4417) 882 > limit (27)
+00108401734e[CPU0  ] load_seg_reg(ES, 0x8afc): not data or readable code
+00108406115e[CPU0  ] fetch_raw_descriptor: GDT: index (8917) 1122 > limit (27)
+00108410496e[CPU0  ] fetch_raw_descriptor: GDT: index (c1f) 183 > limit (27)
+00108414877e[CPU0  ] load_seg_reg(ES, 0x84f5): not data or readable code
+00108419258e[CPU0  ] fetch_raw_descriptor: GDT: index (fb47) 1f68 > limit (27)
+00108423639e[CPU0  ] load_seg_reg(ES, 0xc666): not data or readable code
+00108428020e[CPU0  ] fetch_raw_descriptor: GDT: index (468f) 8d1 > limit (27)
+00108432401e[CPU0  ] fetch_raw_descriptor: GDT: index (b0a7) 1614 > limit (27)
+00108436782e[CPU0  ] load_seg_reg(ES, 0xd585): invalid segment
+00108441163e[CPU0  ] fetch_raw_descriptor: GDT: index (f897) 1f12 > limit (27)
+00108445544e[CPU0  ] load_seg_reg(ES, 0x1046): not data or readable code
+00108449925e[CPU0  ] load_seg_reg(ES, 0x2547): invalid segment
+00108454306e[CPU0  ] fetch_raw_descriptor: GDT: index (c63f) 18c7 > limit (27)
+00108458687e[CPU0  ] fetch_raw_descriptor: GDT: index (5007) a00 > limit (27)
+00108463068e[CPU0  ] fetch_raw_descriptor: GDT: index (e857) 1d0a > limit (27)
+00108467449e[CPU0  ] fetch_raw_descriptor: GDT: index (301f) 603 > limit (27)
+00108471830e[CPU0  ] fetch_raw_descriptor: GDT: index (4bf) 97 > limit (27)
+00108476211e[CPU0  ] load_seg_reg(ES, 0x8a04): invalid segment
+00108480592e[CPU0  ] fetch_raw_descriptor: GDT: index (44ef) 89d > limit (27)
+00108489360e[CPU0  ] load_seg_reg(ES, 0x8acc): not data or readable code
+00108493741e[CPU0  ] load_seg_reg(ES, 0x0005): not data or readable code
+00108498122e[CPU0  ] fetch_raw_descriptor: GDT: index (8b57) 116a > limit (27)
+00108502503e[CPU0  ] load_seg_reg(ES, 0x8904): segment not present
+00108506884e[CPU0  ] fetch_raw_descriptor: GDT: index (b857) 170a > limit (27)
+00108511265e[CPU0  ] fetch_raw_descriptor: GDT: index (c4bf) 1897 > limit (27)
+00108515646e[CPU0  ] fetch_raw_descriptor: GDT: index (57) a > limit (27)
+00108520027e[CPU0  ] load_seg_reg(ES, 0x31f7): invalid segment
+00108524408e[CPU0  ] fetch_raw_descriptor: GDT: index (8847) 1108 > limit (27)
+00108528789e[CPU0  ] fetch_raw_descriptor: GDT: index (868f) 10d1 > limit (27)
+00108533170e[CPU0  ] fetch_raw_descriptor: GDT: index (868f) 10d1 > limit (27)
+00108537551e[CPU0  ] load_seg_reg(ES, 0x5dec): not data or readable code
+00108541932e[CPU0  ] load_seg_reg(ES, 0x31ff): invalid segment
+00108546313e[CPU0  ] fetch_raw_descriptor: GDT: index (ba77) 174e > limit (27)
+00108550694e[CPU0  ] load_seg_reg(ES, 0xc35d): RPL & CPL must be <= DPL
+00108555075e[CPU0  ] load_seg_reg(ES, 0x30f7): RPL & CPL must be <= DPL
+00108559456e[CPU0  ] load_seg_reg(ES, 0x06c4): not data or readable code
+00108563837e[CPU0  ] fetch_raw_descriptor: GDT: index (f7e7) 1efc > limit (27)
+00108568218e[CPU0  ] fetch_raw_descriptor: GDT: index (ebf) 1d7 > limit (27)
+00108576986e[CPU0  ] fetch_raw_descriptor: GDT: index (c487) 1890 > limit (27)
+00108581367e[CPU0  ] load_seg_reg(ES, 0x7e8d): segment not present
+00108585748e[CPU0  ] fetch_raw_descriptor: GDT: index (83cf) 1079 > limit (27)
+00108590129e[CPU0  ] load_seg_reg(ES, 0x08c4): not data or readable code
+00108594510e[CPU0  ] fetch_raw_descriptor: GDT: index (abef) 157d > limit (27)
+00108598891e[CPU0  ] fetch_raw_descriptor: GDT: index (5e8f) bd1 > limit (27)
+00108603272e[CPU0  ] load_seg_reg(ES, 0x5e8d): invalid segment
+00108607653e[CPU0  ] load_seg_reg(ES, 0xccf4): not data or readable code
+00108612118e[CPU0  ] load_seg_reg(ES, 0xe316): segment not present
+00108616499e[CPU0  ] fetch_raw_descriptor: GDT: index (d1f7) 1a3e > limit (27)
+00108620880e[CPU0  ] fetch_raw_descriptor: GDT: index (468f) 8d1 > limit (27)
+00108625261e[CPU0  ] fetch_raw_descriptor: GDT: index (ffef) 1ffd > limit (27)
+00108629642e[CPU0  ] load_seg_reg(ES, 0x0004): not data or readable code
+00108634023e[CPU0  ] fetch_raw_descriptor: GDT: index (5007) a00 > limit (27)
+00108638404e[CPU0  ] load_seg_reg(ES, 0xfa46): invalid segment
+00108642785e[CPU0  ] fetch_raw_descriptor: GDT: index (b80f) 1701 > limit (27)
+00108647166e[CPU0  ] load_seg_reg(ES, 0x0505): not data or readable code
+00108651547e[CPU0  ] fetch_raw_descriptor: GDT: index (74c7) e98 > limit (27)
+00108655928e[CPU0  ] fetch_raw_descriptor: GDT: index (878f) 10f1 > limit (27)
+00108660309e[CPU0  ] load_seg_reg(ES, 0x1575): invalid segment
+00108664690e[CPU0  ] load_seg_reg(ES, 0xc35d): RPL & CPL must be <= DPL
+00108669071e[CPU0  ] fetch_raw_descriptor: GDT: index (50ef) a1d > limit (27)
+00108673452e[CPU0  ] load_seg_reg(ES, 0x0036): invalid segment
+00108677833e[CPU0  ] load_seg_reg(ES, 0xf746): segment not present
+00108682298e[CPU0  ] fetch_raw_descriptor: GDT: index (83df) 107b > limit (27)
+00108686679e[CPU0  ] fetch_raw_descriptor: GDT: index (e437) 1c86 > limit (27)
+00108691060e[CPU0  ] load_seg_reg(ES, 0x04c4): invalid segment
+00108695441e[CPU0  ] load_seg_reg(ES, 0xfa46): invalid segment
+00108699822e[CPU0  ] fetch_raw_descriptor: GDT: index (f2ef) 1e5d > limit (27)
+00108708590e[CPU0  ] load_seg_reg(ES, 0x06c4): not data or readable code
+00108712971e[CPU0  ] load_seg_reg(ES, 0x4444): not data or readable code
+00108717352e[CPU0  ] fetch_raw_descriptor: GDT: index (eb0f) 1d61 > limit (27)
+00108721733e[CPU0  ] fetch_raw_descriptor: GDT: index (f707) 1ee0 > limit (27)
+00108726114e[CPU0  ] fetch_raw_descriptor: GDT: index (bb07) 1760 > limit (27)
+00108730495e[CPU0  ] fetch_raw_descriptor: GDT: index (8d07) 11a0 > limit (27)
+00108734876e[CPU0  ] fetch_raw_descriptor: GDT: index (d767) 1aec > limit (27)
+00108739257e[CPU0  ] fetch_raw_descriptor: GDT: index (8d47) 11a8 > limit (27)
+00108743638e[CPU0  ] load_seg_reg(ES, 0xfde4): invalid segment
+00108748103e[CPU0  ] load_seg_reg(ES, 0xe9f7): RPL & CPL must be <= DPL
+00108752484e[CPU0  ] load_seg_reg(ES, 0x53fe): segment not present
+00108756865e[CPU0  ] fetch_raw_descriptor: GDT: index (3157) 62a > limit (27)
+00108761246e[CPU0  ] fetch_raw_descriptor: GDT: index (878f) 10f1 > limit (27)
+00108765627e[CPU0  ] load_seg_reg(ES, 0xfde4): invalid segment
+00108770008e[CPU0  ] fetch_raw_descriptor: GDT: index (db37) 1b66 > limit (27)
+00108774389e[CPU0  ] load_seg_reg(ES, 0xe286): not data or readable code
+00108778770e[CPU0  ] load_seg_reg(ES, 0x8b3d): invalid segment
+00108783151e[CPU0  ] fetch_raw_descriptor: GDT: index (868f) 10d1 > limit (27)
+00108787532e[CPU0  ] fetch_raw_descriptor: GDT: index (868f) 10d1 > limit (27)
+00108791913e[CPU0  ] load_seg_reg(ES, 0x0004): not data or readable code
+00108796294e[CPU0  ] fetch_raw_descriptor: GDT: index (8bc7) 1178 > limit (27)
+00108800675e[CPU0  ] load_seg_reg(ES, 0x88fd): not data or readable code
+00108805056e[CPU0  ] load_seg_reg(ES, 0x8944): invalid segment
+00108809437e[CPU0  ] load_seg_reg(ES, 0x0474): invalid segment
+00108813818e[CPU0  ] fetch_raw_descriptor: GDT: index (c037) 1806 > limit (27)
+00108818199e[CPU0  ] load_seg_reg(ES, 0x1275): invalid segment
+00108822580e[CPU0  ] load_seg_reg(ES, 0xfdee): RPL & CPL must be <= DPL
+00108826961e[CPU0  ] fetch_raw_descriptor: GDT: index (e857) 1d0a > limit (27)
+00108831342e[CPU0  ] fetch_raw_descriptor: GDT: index (e857) 1d0a > limit (27)
+00108835723e[CPU0  ] fetch_raw_descriptor: GDT: index (c487) 1890 > limit (27)
+00108840104e[CPU0  ] load_seg_reg(ES, 0xb1e4): segment not present
+00108844485e[CPU0  ] fetch_raw_descriptor: GDT: index (36a7) 6d4 > limit (27)
+00108848866e[CPU0  ] fetch_raw_descriptor: GDT: index (ffbf) 1ff7 > limit (27)
+00108853247e[CPU0  ] load_seg_reg(ES, 0x8b0f): not data or readable code
+00108857628e[CPU0  ] load_seg_reg(ES, 0xf646): invalid segment
+00108862009e[CPU0  ] load_seg_reg(ES, 0x013c): invalid segment
+00108866390e[CPU0  ] fetch_raw_descriptor: GDT: index (3ba7) 774 > limit (27)
+00108870771e[CPU0  ] fetch_raw_descriptor: GDT: index (15f) 2b > limit (27)
+00108875152e[CPU0  ] load_seg_reg(ES, 0x014e): invalid segment
+00108879533e[CPU0  ] fetch_raw_descriptor: GDT: index (c38f) 1871 > limit (27)
+00108883998e[CPU0  ] fetch_raw_descriptor: GDT: index (1e8f) 3d1 > limit (27)
+00108888379e[CPU0  ] load_seg_reg(ES, 0xedef): not data or readable code
+00108892760e[CPU0  ] fetch_raw_descriptor: GDT: index (55c7) ab8 > limit (27)
+00108897225e[CPU0  ] load_seg_reg(ES, 0x045e): invalid segment
+00108901606e[CPU0  ] load_seg_reg(ES, 0x3ccc): invalid segment
+00108905987e[CPU0  ] fetch_raw_descriptor: GDT: index (e857) 1d0a > limit (27)
+00108910368e[CPU0  ] fetch_raw_descriptor: GDT: index (bb57) 176a > limit (27)
+00108914749e[CPU0  ] fetch_raw_descriptor: GDT: index (10bf) 217 > limit (27)
+00108919130e[CPU0  ] fetch_raw_descriptor: GDT: index (e857) 1d0a > limit (27)
+00108923511e[CPU0  ] fetch_raw_descriptor: GDT: index (e857) 1d0a > limit (27)
+00108927892e[CPU0  ] load_seg_reg(ES, 0x89f4): not data or readable code
+00108936660e[CPU0  ] fetch_raw_descriptor: GDT: index (50c7) a18 > limit (27)
+00108941041e[CPU0  ] fetch_raw_descriptor: GDT: index (e857) 1d0a > limit (27)
+00108945422e[CPU0  ] load_seg_reg(ES, 0xc35d): RPL & CPL must be <= DPL
+00108949803e[CPU0  ] fetch_raw_descriptor: GDT: index (eef) 1dd > limit (27)
+00108954184e[CPU0  ] fetch_raw_descriptor: GDT: index (75c7) eb8 > limit (27)
+00108958565e[CPU0  ] fetch_raw_descriptor: GDT: index (74c7) e98 > limit (27)
+00108967333e[CPU0  ] fetch_raw_descriptor: GDT: index (5007) a00 > limit (27)
+00108971714e[CPU0  ] fetch_raw_descriptor: GDT: index (5007) a00 > limit (27)
+00108980482e[CPU0  ] fetch_raw_descriptor: GDT: index (64bf) c97 > limit (27)
+00108984863e[CPU0  ] fetch_raw_descriptor: GDT: index (11bf) 237 > limit (27)
+00108989244e[CPU0  ] fetch_raw_descriptor: GDT: index (b80f) 1701 > limit (27)
+00108993625e[CPU0  ] load_seg_reg(ES, 0x85fe): invalid segment
+00108998006e[CPU0  ] load_seg_reg(ES, 0x0064): not data or readable code
+00109002387e[CPU0  ] load_seg_reg(ES, 0x0124): not data or readable code
+00109011155e[CPU0  ] fetch_raw_descriptor: GDT: index (ff57) 1fea > limit (27)
+00109015536e[CPU0  ] load_seg_reg(ES, 0xe8e4): invalid segment
+00109019917e[CPU0  ] fetch_raw_descriptor: GDT: index (c487) 1890 > limit (27)
+00109024298e[CPU0  ] fetch_raw_descriptor: GDT: index (fc87) 1f90 > limit (27)
+00109028679e[CPU0  ] load_seg_reg(ES, 0x8a06): invalid segment
+00109033060e[CPU0  ] fetch_raw_descriptor: GDT: index (7707) ee0 > limit (27)
+00109037441e[CPU0  ] fetch_raw_descriptor: GDT: index (d1e7) 1a3c > limit (27)
+00109041822e[CPU0  ] load_seg_reg(ES, 0x2404): invalid segment
+00109046203e[CPU0  ] fetch_raw_descriptor: GDT: index (c037) 1806 > limit (27)
+00109050584e[CPU0  ] load_seg_reg(ES, 0xfa5e): segment not present
+00109054965e[CPU0  ] load_seg_reg(ES, 0xfdaf): segment not present
+00109063733e[CPU0  ] fetch_raw_descriptor: GDT: index (5e8f) bd1 > limit (27)
+00109068114e[CPU0  ] load_seg_reg(ES, 0x0846): not data or readable code
+00109072495e[CPU0  ] fetch_raw_descriptor: GDT: index (8a1f) 1143 > limit (27)
+00109076876e[CPU0  ] load_seg_reg(ES, 0x0046): invalid segment
+00109081257e[CPU0  ] load_seg_reg(ES, 0x5ec5): invalid segment
+00109085638e[CPU0  ] fetch_raw_descriptor: GDT: index (caef) 195d > limit (27)
+00109090019e[CPU0  ] load_seg_reg(ES, 0xc35d): RPL & CPL must be <= DPL
+00109094568e[CPU0  ] fetch_raw_descriptor: GDT: index (427) 84 > limit (27)
+00109099088e[CPU0  ] fetch_raw_descriptor: GDT: index (c317) 1862 > limit (27)
+00109103469e[CPU0  ] fetch_raw_descriptor: GDT: index (5d1f) ba3 > limit (27)
+00109107850e[CPU0  ] load_seg_reg(ES, 0x8955): not data or readable code
+00109112231e[CPU0  ] load_seg_reg(ES, 0xffff): not data or readable code
+00109138723e[CPU0  ] fetch_raw_descriptor: GDT: index (6d27) da4 > limit (27)
+00109143104e[CPU0  ] load_seg_reg(ES, 0x6576): not data or readable code
+00109147485e[CPU0  ] fetch_raw_descriptor: GDT: index (617) c2 > limit (27)
+00109151866e[CPU0  ] fetch_raw_descriptor: GDT: index (3057) 60a > limit (27)
+00109156247e[CPU0  ] fetch_raw_descriptor: GDT: index (d047) 1a08 > limit (27)
+00109160628e[CPU0  ] fetch_raw_descriptor: GDT: index (3057) 60a > limit (27)
+00109165009e[CPU0  ] fetch_raw_descriptor: GDT: index (5b37) b66 > limit (27)
+00109169390e[CPU0  ] fetch_raw_descriptor: GDT: index (5087) a10 > limit (27)
+00109173771e[CPU0  ] fetch_raw_descriptor: GDT: index (5f57) bea > limit (27)
+00109178152e[CPU0  ] load_seg_reg(ES, 0x60a4): invalid segment
+00109182533e[CPU0  ] fetch_raw_descriptor: GDT: index (4947) 928 > limit (27)
+00109186914e[CPU0  ] fetch_raw_descriptor: GDT: index (5b37) b66 > limit (27)
+00109191295e[CPU0  ] load_seg_reg(ES, 0x4306): invalid segment
+00109195676e[CPU0  ] load_seg_reg(ES, 0x314d): segment not present
+00109195707i[CPU0  ] LOCK prefix unallowed (op1=0x6e, modrm=0x00)
+00109195711e[CPU0  ] read_RMW_virtual_dword_32(): segment limit violation
+00109200092e[CPU0  ] load_seg_reg(ES, 0x435f): invalid segment
+00109204473e[CPU0  ] load_seg_reg(ES, 0x4b04): not data or readable code
+00109208854e[CPU0  ] fetch_raw_descriptor: GDT: index (5f0f) be1 > limit (27)
+00109208932i[CPU0  ] LOCK prefix unallowed (op1=0x83, modrm=0x7d)
+00109213319e[CPU0  ] fetch_raw_descriptor: GDT: index (434f) 869 > limit (27)
+00109217700e[CPU0  ] load_seg_reg(ES, 0xff0c): segment not present
+00109222081e[CPU0  ] fetch_raw_descriptor: GDT: index (4c07) 980 > limit (27)
+00109226462e[CPU0  ] fetch_raw_descriptor: GDT: index (1207) 240 > limit (27)
+00109230843e[CPU0  ] load_seg_reg(ES, 0x16ff): invalid segment
+00109235224e[CPU0  ] load_seg_reg(ES, 0x4b4e): invalid segment
+00109239605e[CPU0  ] load_seg_reg(ES, 0x040d): invalid segment
+00109243986e[CPU0  ] fetch_raw_descriptor: GDT: index (107) 20 > limit (27)
+00109248451e[CPU0  ] load_seg_reg(ES, 0x0bff): not data or readable code
+00109252832e[CPU0  ] load_seg_reg(ES, 0x4e4c): invalid segment
+00109257213e[CPU0  ] load_seg_reg(ES, 0x040d): invalid segment
+00109261594e[CPU0  ] fetch_raw_descriptor: GDT: index (a07) 140 > limit (27)
+00109265975e[CPU0  ] fetch_raw_descriptor: GDT: index (434f) 869 > limit (27)
+00109270356e[CPU0  ] load_seg_reg(ES, 0xff0c): segment not present
+00109274737e[CPU0  ] fetch_raw_descriptor: GDT: index (4c07) 980 > limit (27)
+00109279118e[CPU0  ] fetch_raw_descriptor: GDT: index (5f0f) be1 > limit (27)
+00109292273e[CPU0  ] fetch_raw_descriptor: GDT: index (5f77) bee > limit (27)
+00109296654e[CPU0  ] fetch_raw_descriptor: GDT: index (3377) 66e > limit (27)
+00109301035e[CPU0  ] load_seg_reg(ES, 0x6854): invalid segment
+00109305500e[CPU0  ] load_seg_reg(ES, 0x0fc7): not data or readable code
+00109309965e[CPU0  ] load_seg_reg(ES, 0x005f): invalid segment
+00109318733e[CPU0  ] fetch_raw_descriptor: GDT: index (8807) 1100 > limit (27)
+00109323169e[CPU0  ] fetch_raw_descriptor: GDT: index (14c7) 298 > limit (27)
+00109327550e[CPU0  ] fetch_raw_descriptor: GDT: index (c6f7) 18de > limit (27)
+00109332015e[CPU0  ] load_seg_reg(ES, 0x8b3c): invalid segment
+00109336396e[CPU0  ] fetch_raw_descriptor: GDT: index (fb87) 1f70 > limit (27)
+00109345164e[CPU0  ] load_seg_reg(ES, 0x40c7): invalid segment
+00109349545e[CPU0  ] fetch_raw_descriptor: GDT: index (fe9f) 1fd3 > limit (27)
+00109353926e[CPU0  ] fetch_raw_descriptor: GDT: index (c607) 18c0 > limit (27)
+00109358307e[CPU0  ] fetch_raw_descriptor: GDT: index (c087) 1810 > limit (27)
+00109362688e[CPU0  ] fetch_raw_descriptor: GDT: index (400f) 801 > limit (27)
+00109367069e[CPU0  ] fetch_raw_descriptor: GDT: index (ea87) 1d50 > limit (27)
+00109371450e[CPU0  ] fetch_raw_descriptor: GDT: index (f27) 1e4 > limit (27)
+00109375831e[CPU0  ] fetch_raw_descriptor: GDT: index (8327) 1064 > limit (27)
+00109380212e[CPU0  ] fetch_raw_descriptor: GDT: index (447) 88 > limit (27)
+00109384593e[CPU0  ] fetch_raw_descriptor: GDT: index (c607) 18c0 > limit (27)
+00109389029e[CPU0  ] fetch_raw_descriptor: GDT: index (90c7) 1218 > limit (27)
+00109393410e[CPU0  ] load_seg_reg(ES, 0x46c7): invalid segment
+00109402178e[CPU0  ] fetch_raw_descriptor: GDT: index (6607) cc0 > limit (27)
+00109406559e[CPU0  ] fetch_raw_descriptor: GDT: index (d237) 1a46 > limit (27)
+00109410940e[CPU0  ] fetch_raw_descriptor: GDT: index (c707) 18e0 > limit (27)
+00109415321e[CPU0  ] fetch_raw_descriptor: GDT: index (d88f) 1b11 > limit (27)
+00109419841e[CPU0  ] load_seg_reg(ES, 0x40c6): invalid segment
+00109424222e[CPU0  ] fetch_raw_descriptor: GDT: index (647) c8 > limit (27)
+00109428603e[CPU0  ] fetch_raw_descriptor: GDT: index (44f) 89 > limit (27)
+00109433068e[CPU0  ] load_seg_reg(ES, 0x0574): not data or readable code
+00109437449e[CPU0  ] fetch_raw_descriptor: GDT: index (2f) 5 > limit (27)
+00109437480i[CPU0  ] LOCK prefix unallowed (op1=0x6e, modrm=0x00)
+00109437484e[CPU0  ] read_RMW_virtual_dword_32(): segment limit violation
+00109441865e[CPU0  ] fetch_raw_descriptor: GDT: index (81cf) 1039 > limit (27)
+00109446330e[CPU0  ] load_seg_reg(ES, 0xa486): not data or readable code
+00109446365e[CPU0  ] read_RMW_virtual_dword_32(): segment limit violation
+00109455217e[CPU0  ] load_seg_reg(ES, 0x2384): invalid segment
+00109459598e[CPU0  ] fetch_raw_descriptor: GDT: index (7507) ea0 > limit (27)
+00109463979e[CPU0  ] fetch_raw_descriptor: GDT: index (8907) 1120 > limit (27)
+00109468360e[CPU0  ] load_seg_reg(ES, 0x2444): invalid segment
+00109472741e[CPU0  ] fetch_raw_descriptor: GDT: index (60bf) c17 > limit (27)
+00109477122e[CPU0  ] fetch_raw_descriptor: GDT: index (8817) 1102 > limit (27)
+00109481503e[CPU0  ] load_seg_reg(ES, 0x3d66): invalid segment
+00109485884e[CPU0  ] fetch_raw_descriptor: GDT: index (fe0f) 1fc1 > limit (27)
+00109490265e[CPU0  ] load_seg_reg(ES, 0x2424): invalid segment
+00109494646e[CPU0  ] fetch_raw_descriptor: GDT: index (7427) e84 > limit (27)
+00109494677i[CPU0  ] LOCK prefix unallowed (op1=0x6e, modrm=0x00)
+00109494686i[CPU0  ] LOCK prefix unallowed (op1=0x6e, modrm=0x00)
+00109494695e[CPU0  ] load_seg_reg(ES, 0xb9ef): not data or readable code
+00109499076e[CPU0  ] load_seg_reg(ES, 0x891c): not data or readable code
+00109512315e[CPU0  ] fetch_raw_descriptor: GDT: index (c117) 1822 > limit (27)
+00109516696e[CPU0  ] fetch_raw_descriptor: GDT: index (cff) 19f > limit (27)
+00109521077e[CPU0  ] fetch_raw_descriptor: GDT: index (efcf) 1df9 > limit (27)
+00109521209e[CPU0  ] fetch_raw_descriptor: GDT: index (8bc7) 1178 > limit (27)
+00109525590e[CPU0  ] fetch_raw_descriptor: GDT: index (e287) 1c50 > limit (27)
+00109530055e[CPU0  ] fetch_raw_descriptor: GDT: index (c707) 18e0 > limit (27)
+00109534436e[CPU0  ] load_seg_reg(ES, 0x0026): not data or readable code
+00109538817e[CPU0  ] load_seg_reg(ES, 0x244c): invalid segment
+00109543198e[CPU0  ] load_seg_reg(ES, 0x0424): invalid segment
+00109547579e[CPU0  ] fetch_raw_descriptor: GDT: index (c82f) 1905 > limit (27)
+00109552044e[CPU0  ] fetch_raw_descriptor: GDT: index (8b1f) 1163 > limit (27)
+00109560812e[CPU0  ] fetch_raw_descriptor: GDT: index (ce2f) 19c5 > limit (27)
+00109560843i[CPU0  ] LOCK prefix unallowed (op1=0x6e, modrm=0x00)
+00109560861e[CPU0  ] load_seg_reg(ES, 0x5755): segment not present
+00109565242e[CPU0  ] load_seg_reg(ES, 0x3157): invalid segment
+00109569623e[CPU0  ] load_seg_reg(ES, 0x5356): invalid segment
+00109569672e[CPU0  ] fetch_raw_descriptor: GDT: index (548f) a91 > limit (27)
+00109574053e[CPU0  ] load_seg_reg(ES, 0x1f0c): segment not present
+00109578434e[CPU0  ] fetch_raw_descriptor: GDT: index (cd8f) 19b1 > limit (27)
+00109582815e[CPU0  ] load_seg_reg(ES, 0xed66): not data or readable code
+00109582864e[CPU0  ] fetch_raw_descriptor: GDT: index (90c7) 1218 > limit (27)
+00109587245e[CPU0  ] load_seg_reg(ES, 0xb48d): invalid segment
+00109591626e[CPU0  ] fetch_raw_descriptor: GDT: index (75c7) eb8 > limit (27)
+00109596007e[CPU0  ] load_seg_reg(ES, 0xbbed): invalid segment
+00109596056e[CPU0  ] load_seg_reg(ES, 0x89ee): not data or readable code
+00109596105e[CPU0  ] fetch_raw_descriptor: GDT: index (8b57) 116a > limit (27)
+00109600486e[CPU0  ] load_seg_reg(ES, 0x3c0c): invalid segment
+00116159256i[APIC0 ] warning: misaligned APIC access. addr=0x0000fee00ffc
+00116159256p[APIC0 ] >>PANIC<< APIC write at unaligned address 0x0000fee00ffc
+00116159256i[CPU0  ] CPU is in protected mode (active)
+00116159256i[CPU0  ] CS.mode = 32 bit
+00116159256i[CPU0  ] SS.mode = 32 bit
+00116159256i[CPU0  ] EFER   = 0x00000000
+00116159256i[CPU0  ] | EAX=fffffff7  EBX=0002cffd  ECX=000b7f7e  EDX=ffffffff
+00116159256i[CPU0  ] | ESP=fee01000  EBP=fee01034  ESI=00053ca3  EDI=053c8c00
+00116159256i[CPU0  ] | IOPL=0 id vip vif ac vm RF nt of df if tf sf zf AF PF CF
+00116159256i[CPU0  ] | SEG sltr(index|ti|rpl)     base    limit G D
+00116159256i[CPU0  ] |  CS:0008( 0001| 0|  0) 00000000 ffffffff 1 1
+00116159256i[CPU0  ] |  DS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+00116159256i[CPU0  ] |  SS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+00116159256i[CPU0  ] |  ES:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+00116159256i[CPU0  ] |  FS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+00116159256i[CPU0  ] |  GS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+00116159256i[CPU0  ] | EIP=00100287 (00100287)
+00116159256i[CPU0  ] | CR0=0x60000011 CR2=0x00000000
+00116159256i[CPU0  ] | CR3=0x00000000 CR4=0x00000000
+00116159256i[CMOS  ] Last time is 1403457440 (Mon Jun 23 01:17:20 2014)
+00116159256i[XGUI  ] Exit
+00116159256i[SIM   ] quit_sim called with exit code 1

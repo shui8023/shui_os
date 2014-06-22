@@ -6,7 +6,7 @@ megs: 32
 
 floppya: 1_44=tool/floppy.img, status=inserted
 #在tool下找到找到这个软盘镜像，
-
+ romimage: file=/opt/bochs-2.6.5/bios/BIOS-bochs-latest
 log:tool/bochsout.txt
 #启动的信息放入到tool/bochsout.txt文件中
 

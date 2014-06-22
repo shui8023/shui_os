@@ -20,6 +20,8 @@
 #include "elf.h"
 #include "idt.h"
 #include "gdt.h"
+#include "timer.h"
+
 
 int entry()
 {
@@ -33,11 +35,10 @@ int entry()
 	screen_clear();
 	printk("%s\n", string);
       	
-//	panic("test");
-      
-  	asm volatile ("int $0x04");
-	asm volatile ("int $0x07");
-//	while (1);
+	init_timer(200);
+
+	asm volatile ("sti");
+	
 	return 0;
 }
 
