@@ -26,6 +26,7 @@ idt_entry_t idt_entries[256];
 
 
 //中断描述符表
+
 idt_ptr_t idt_ptr;
 
 //中断处理函数指针数组
@@ -135,5 +136,5 @@ void isr_handler(pt_regs_t *regs)
 //注册一个中断描述符函数
 void registers_interrupt_handler(uint8 n, interrupt_handler_t h)
 {
-	interrupt_handlers[n] = h;
+	interrupt_handlers[n] =   h;
 }
