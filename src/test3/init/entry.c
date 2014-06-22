@@ -35,8 +35,8 @@ int entry()
       	
 //	panic("test");
       
-  	asm volatile ("int $0x01");
-	asm volatile ("int $0x4");
+  	asm volatile ("int $0x04");
+	asm volatile ("int $0x07");
 //	while (1);
 	return 0;
 }

@@ -89,8 +89,8 @@ void init_idt()
 //设置中断描述符
 static void idt_set_gate(uint8 num, uint32 base, uint16 sel, uint8 flags)
 {
-	idt_entries[num].base_low = base & 0xffff;
-	idt_entries[num].base_high = (base >> 16) & 0xffff;
+	idt_entries[num].base_low = base & 0xFFFF;
+	idt_entries[num].base_high = (base >> 16) & 0xFFFF;
 
 	idt_entries[num].segment  = sel;
 	idt_entries[num].must_0 = 0;
@@ -105,7 +105,7 @@ void isr_handler(pt_regs_t *regs)
 	if (interrupt_handlers[regs->int_no]) {
 		interrupt_handlers[regs->int_no](regs);	
 	} else {
-		printk("unhanddled interuppt %d\n", regs->int_no);
+		printk("uhanddled interuppt:%d\n",regs->int_no);
 	}
 }
 

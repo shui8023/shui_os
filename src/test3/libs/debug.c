@@ -100,8 +100,8 @@ int vprintk(const int8 * format, char * ap)
 			} else {
 				printchar(*format);
 				pc++;
-				
 			}
+
 		} else {
 			printchar(*format);
 			pc++;

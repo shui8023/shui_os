@@ -47,6 +47,7 @@ typedef struct pt_regs_t{
 	uint32 ebp;
 	uint32 esp;
 	uint32 ebx;
+	uint32 edx;
 	uint32 ecx;
 	uint32 eax;
 	uint32 int_no; 		//中断号

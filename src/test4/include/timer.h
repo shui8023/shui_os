@@ -1,12 +1,12 @@
 /*
  * =====================================================================================
  *
- *       Filename:  timer.c
+ *       Filename:  timer.h
  *
- *    Description: 中断时钟的实现
+ *    Description:  时钟中断函数的实现
  *
  *        Version:  1.0
- *        Created:  2014年06月20日 00时34分32秒
+ *        Created:  06/21/2014 06:56:32 PM
  *       Revision:  none
  *       Compiler:  gcc
  *
@@ -16,25 +16,13 @@
  * =====================================================================================
  */
 
+#ifndef TIMER_H
+#define TIMER_H
+
 #include "types.h"
-#include "debug.h"
-#include "idt.h"
-#include "common.h"
-#include "timer.h"
 
-/*
- *
- *
- */
+void  timer_callback(pt_regs_t *regs);
 
-void  timer_callback(pt_regs_t *regs)
-{
-	static uint32 tick = 0;
-	printk("tick:%d\n", tick++);
-}
+void init_timer(uint32 frequency);
 
-void init_timer(uint32 frequency)
-{
-	
-}
-
+#endif //TIMER_H
