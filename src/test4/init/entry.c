@@ -35,8 +35,9 @@ int entry()
 	screen_clear();
 	printk("%s\n", string);
       	
-	init_timer(200);
-
+	init_timer(1);
+	
+	//sti是恢复中断。cli是关闭中断。
 	asm volatile ("sti");
 	
 	return 0;
