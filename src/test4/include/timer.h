@@ -20,6 +20,7 @@
 #define TIMER_H
 
 #include "types.h"
+#include "idt.h"
 
 //初始化时钟中断函数
 void init_timer(uint32 frequency);

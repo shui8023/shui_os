@@ -17,7 +17,7 @@
  */
 
 #include "screen_operate.h"
-
+#include "screen_port.h"
 /*指针的大小都是四个字节的
  *指针的指向大小与指针的类型有关
  *理解错误了哈
@@ -27,6 +27,29 @@ static  int16 * screen_point = (int16 *)0xb8000;
 
 static int16 screen_abscissa = 0;
 static int16 screen_ordinate = 0;
+
+
+static void scrooll(void)
+{
+	uint8 attribute_byte = (0 << 4) | (15 & 0x0F);
+	uint16 blank = 0x20 | (attribute_byte << 8);
+
+	if (screen_abscissa >= 25) {
+		int i;
+		
+		for (i = 0; i < 24 *80; i++) {
+			screen_point[i] = screen_point[i+80];
+			
+		}
+
+		for (i = 24*80; i < 25*80; i++) {
+			screen_point[i] = blank;
+		}
+
+		screen_abscissa = 24;
+	}
+}
+
 
 static void move_point()
 {
@@ -82,7 +105,7 @@ void screen_clear()
 		screen_abscissa ++;
 		screen_ordinate = 0;
 	}
-
+	scrooll();
 	move_point();
 	
 }
@@ -97,4 +120,3 @@ void screen_string(int8 *string, color back_color, color fore_color)
 	}
 	
 }
-

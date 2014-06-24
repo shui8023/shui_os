@@ -18,8 +18,9 @@
 
 #include "types.h"
 #include "debug.h"
-#include "idt.h"
 #include "timer.h"
+#include "screen_port.h"
+#include "idt.h"
 
 /*中断时钟的函数
  *显示时钟

@@ -20,6 +20,9 @@
 #define IDT_H
 
 #include "types.h"
+#include "screen_port.h"
+
+
 
 //中段描述符的结构的声明，定义也是声明
 //段描述符共8个字节，共64位
