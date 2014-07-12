@@ -25,7 +25,6 @@
 
 int entry()
 {
-	
 	init_debug();
 	init_gdt();
 	init_idt();
@@ -39,7 +38,7 @@ int entry()
 	
 	//sti是恢复中断。cli是关闭中断。
 	asm volatile ("sti");
-	
+	asm volatile ("int $0x1");
 	return 0;
 }
 

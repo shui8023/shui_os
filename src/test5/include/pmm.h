@@ -29,8 +29,42 @@
 #include "types.h"
 #include "debug.h"
 
+
+//为什么是8192,应该是内核的可用的空间
+#define STACK_SIZE 8192
+
+//支持的最大物理内存512M
+#define PAM_MAX_SIZE  0x20000000
+
+//物理内存叶框大小
+#define PAM_PAGE_SIZE 0x1000
+
+
+//最多支持的物理页面个数
+#define PAGE_MAX_SIZE   (PAM_MAX_SIZE/PAM_PAGE_SIZE)
+
+//页掩按照4096对齐地址
+#define PHY_PAGE_MASK 0xFFFFF000
+
+//动态分配物理内存页的总数
+extern uint32 phy_page_count;
+
+//初始化物理内存管理
+void init_pmm();
+
+//返回一个内存页的物理地址
+uint32 pmm_alloc_page();
+
+//释放申请的内存
+void pmm_free_page(uint32 p);
+
+/*kernel_start是内核加载到内存的起始位置
+ *kernel_end 是内核加载到内存的末位置，在链接文件中定义的
+ */
 extern uint8 kernel_start[];
 extern uint8 kernel_end[];
+
+
 /*
  *打印出grub探测的内存的块
  *
