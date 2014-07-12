@@ -15,13 +15,12 @@
 
 #include "screen_operate.h"
 #include "string.h"
-#include "debug.h"
 #include "panic.h"
 #include "elf.h"
 #include "idt.h"
 #include "gdt.h"
 #include "timer.h"
-
+#include "pmm.h"
 
 int entry()
 {
@@ -34,12 +33,11 @@ int entry()
 	screen_clear();
 	printk("%s\n", string);
   
-	panic("test");
-//	init_timer(200);
+	printk("kernel in memory start :0x%x\n", kernel_start);
+	printk("kernel in memory end :0x%x\n", kernel_end);
+	printk("kernel in memory used :%d KB\n", (kernel_end - kernel_start + 1023)/1024);
 	
-	//sti是恢复中断。cli是关闭中断。
-//	asm volatile ("sti");
-//	asm volatile ("int $0x1");
+	show_memory_map();
 	return 0;
 }
 

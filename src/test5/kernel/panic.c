@@ -51,7 +51,7 @@ void panic(const char *msg)
 	printk("*******system panic:%s\n", msg);
 	print_stack_trace();
 	printk("****\n");
-
+	print_cur_status();
 	while(1);
 }
 

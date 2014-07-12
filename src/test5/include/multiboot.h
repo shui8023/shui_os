@@ -38,6 +38,11 @@ typedef struct mulitboot_t {
 	uint32 size;
 	uint32 addr;
 	uint32 shndx;
+	/*以下的两项指出了保存由BIOS提供的内存分布的缓冲区的地址和长度。
+	*mmap_addr 是缓冲区的地址，mmap_length 是缓冲区的总大小
+	*缓冲区由一个或者多个下面的mmap_entry_t组成
+	*grub将内存探测的结果按每个分段整理为mmap-entry_t结构体数组，mmap_addr是这结构体数组的首地址，mmap_length是整个数组的长度 
+	*/
 	uint32 mmap_length;
 	uint32 mmap_addr;
 	uint32 drives_length;
@@ -53,6 +58,13 @@ typedef struct mulitboot_t {
 
 }__attribute__((packed)) multiboot_t;
 
+
+/*缓冲区是由这个组成的，结构体是缓冲区的描述
+*size 是整个结构体的大小，单位是字节，它可能大于最小值20，它的值是除了size成员之外的成员的大小，不考虑对齐
+*base_addr_low 是启动地址的大小，32位，base_addr_high是高32位，启动地址共有64位
+*length_low是内存区域大小的低位，32位，length_hight 是高32位，共有64位
+*type是相应地址区间的类型，1代表可用，所有其他的值都代表保留区域RAM
+*/
 typedef struct {
 	uint32 size;
 	uint32 base_addr_low;
