@@ -35,9 +35,23 @@ int entry()
   
 	printk("kernel in memory start :0x%x\n", kernel_start);
 	printk("kernel in memory end :0x%x\n", kernel_end);
-	printk("kernel in memory used :%d KB\n", (kernel_end - kernel_start + 1023)/1024);
+	printk("kernel in memory used :%d KB\n\n", (kernel_end - kernel_start + 1023)/1024);
 	
 	show_memory_map();
+	init_pmm();
+
+
+	uint32 value = pmm_alloc_page();
+	printk("Alloc physical address:%x\n", value);
+	
+	value = pmm_alloc_page();
+	printk("Alloc physical address:%x\n", value);
+	
+	
+	value = pmm_alloc_page();
+	printk("Alloc physical address:%x\n", value);
+	
+	
 	return 0;
 }
 
