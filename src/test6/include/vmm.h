@@ -76,10 +76,11 @@
 typedef uint32 pgd_t;
 typedef uint32 pte_t;
 
-//页表成员数
+//页表成员数1024的大小
 #define PGD_SIZE 	\
 	(PAGE_SIZE/sizeof(pte_t))
 
+//1024的大小
 #define PTE_SIZE 	\
 	(PAGE_SIZE/sizeof(uint32))
 

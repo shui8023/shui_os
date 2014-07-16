@@ -29,10 +29,10 @@
  */
 
 
-//内核页目录的区域4kb
+//内核页目录的区域4kb, alignde 按照4KB对齐，使用的是gcc的扩展
 pgd_t pgd_kernel[PGD_SIZE] __attribute__((aligned(PAGE_SIZE)));
 
-//内核页表的区域 不是4M，只是映射了512M的内存，PTE_SIZE 是1，
+//内核页表的区域 不是4M，只是映射了512M的内存，PTE_SIZE 1024  1  共有128个4KB
 static pte_t pte_kernel[PTE_COUNT][PTE_SIZE] __attribute__((aligned(PAGE_SIZE)));
 
 void init_vmm()
@@ -48,13 +48,14 @@ void init_vmm()
 	//又页是4KB对齐的，也就是求出128个页目录,主要是i的值是干什么的
 	for (i = kernel_pte_first_idx, j = 0; i < PTE_COUNT + kernel_pte_first_idx; i++, j++) {
 		//pte_kernel[j]是页表的内存地址，也就是页目录需要存储的地址，设计成二维数组很方便的
-		//然后转化为表项的内容,由于加载的时候是虚拟内存，需要减去虚拟地址偏移
+		//然后转化为表项的内容,由于链接的时候是加上了0xc0000000，故这个变量的值是在这个基础上
+		//的地址，故必须减去0xc000000才是页表的物理地址，由于页表和页目录上面存的是物理地址
 		pgd_kernel[i] = ((uint32)pte_kernel[j] - PAGE_OFFSET) | PAGE_PRESET | PAGE_WRITE;
 	}
 
 	//初始化页表的值 将物理内存从1开始映射到页表中
 	uint32 *pte = (uint32 *)pte_kernel;
-
+	//这为什么是int 不是4kb一个页么
 	for (i = 1; i < PTE_COUNT * PTE_SIZE; i++) {
 		pte[i] = (i << 12) | PAGE_PRESET | PAGE_WRITE;
 	}
@@ -125,7 +126,8 @@ void unmap(pgd_t *pgd_now, uint32 va)
 		return ;
 	}
 
-	//求出对应的页表的位置，然后转化到内核的线性地址，页表用的线性地址，页目录用的是物理地址，这点是不确定的
+	//求出对应的页表的位置，pte是物理地址，但是由于链接的时候我们把pte连接到了0xc0000000上，所以pte的
+	//现在的地址目前在这个基础之上的，目的是把页表也映射到内存的上面
 	pte = (pte_t *)(uint32)pte + PAGE_OFFSET;
 
 	pte[pte_idx] = 0;
