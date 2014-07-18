@@ -83,11 +83,10 @@ void printx(int number)
 		number = -number;
 	}
 
-	while (number > 0) {
-		
+	do {
 		s[i++] = number % 16;
 		number /= 16;
-	}
+	} while (number > 0);
 
 	for (i = i - 1; i >= 0; i--) {
 		screen_char(hex[s[i]], screen_black, screen_red);

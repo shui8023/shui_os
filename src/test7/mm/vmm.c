@@ -116,7 +116,7 @@ void map(pgd_t *pgd_now, uint32 va, uint32 pa, uint32 flags)
 		//
 		pte = (pte_t *)((uint32)pte + PAGE_OFFSET);
 	}
-
+	//写入的是物理地址空间
 	pte[pte_idx] = (pa & PAGE_MASK) | flags;
 	
 	//通知CPU更新页表
@@ -150,6 +150,13 @@ void unmap(pgd_t *pgd_now, uint32 va)
 	asm volatile ("invlpg (%0)" : : "a"(va));
 }
 
+
+/*
+ *pgd_now:页目录
+ *va :线性地址
+ *pa:物理地址的
+ *目的是通过线性地址找到物理地址
+ */
 uint32 get_mapping(pgd_t *pgd_now, uint32 va, uint32 *pa) 
 {
 	uint32 pgd_idx = PGD_INDEX(va);

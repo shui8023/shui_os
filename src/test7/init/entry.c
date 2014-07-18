@@ -23,7 +23,7 @@
 #include "pmm.h"
 #include "vmm.h"
 #include "multiboot.h"
-
+#include "heap.h"
 
 /*
  *内核初始化函数
@@ -41,6 +41,7 @@ char kernel_stack[STACK_SIZE];
 __attribute__((section(".init.data"))) pgd_t *pgd_tmp = (pgd_t *)0x1000;
 __attribute__((section(".init.data"))) pgd_t *pte_low = (pgd_t *)0x2000;
 __attribute__((section(".init.data"))) pgd_t *pte_high = (pgd_t *)0x3000;
+
 
 //内核入口函数
 __attribute__((section(".init.text"))) void entry()
@@ -80,7 +81,7 @@ __attribute__((section(".init.text"))) void entry()
 
 	kernel_init();
 
-}
+} 
 void  kernel_init()
 {
 	init_debug();
@@ -88,16 +89,17 @@ void  kernel_init()
 	init_idt();
 
 	char *string = "hello word!\n";
-      
+      	
 	screen_clear();
 	printk("%s\n", string);
-  
+
+
 	printk("kernel in memory start :0x%x\n", kernel_start);
 	printk("kernel in memory end :0x%x\n", kernel_end);
 	printk("kernel in memory used :%d KB\n\n", (kernel_end - kernel_start + 1023)/1024);
-	
-	show_memory_map();
+/*	
 	init_pmm();
+	show_memory_map();
 
 
 	uint32 value = pmm_alloc_page();
@@ -109,10 +111,37 @@ void  kernel_init()
 	
 	value = pmm_alloc_page();
 	printk("Alloc physical address:%x\n", value);
+
+	init_vmm();
+	init_heap();
+	void *malloc_address1 = kmalloc(100);
+	printk("malloc address is on 0x%x\n", malloc_address1);
+	
+	
+	printk("test the memory mange:\n");
+	void *malloc_address0 = kmalloc(10);
+	printk("malloc address is on 0x%x\n",malloc_address0);
+
+
+	void *malloc_address2 = kmalloc(1000);
+	printk("malloc address is on 0x%x\n", malloc_address2);
+	
+
+	printk("free address is on 0x%x\n",malloc_address0);
+	kfree(malloc_address0);
+
+	printk("free address is on 0x%x\n",malloc_address1);
+	kfree(malloc_address1);
+	
+	printk("free address is on 0x%x\n",malloc_address2);
+	kfree(malloc_address2);
+
 	
 	//hlt是暂时停机的状态
 	while (1) {
 		asm volatile ("hlt");
 	}
+
+	*/
 }
 

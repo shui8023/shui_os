@@ -1,7 +1,10 @@
 ENTRY(start)  			/*ENTRY(symbol),指定symbol就是链接器指定的内核的入口*/
 
 SECTIONS {
-	PROVIDE(kernel_start = 0xc0100000);
+	/*没有使用provide/provide_hidden 当输入文件以定义此变量，链接器文件中的定义会覆盖输入文件中的定义
+	使用了provide/provide_hidden，输入文件中已经定义了此变量，将以文件中为准
+	*/
+	PROVIDE(kernel_start = 0xC0100000);
 
 	. = 0x100000; 	 	
 		/* "."的代表当前的虚拟地址，赋值语句的意思是将当前虚拟地址设置成0x10000		
