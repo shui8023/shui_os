@@ -64,7 +64,7 @@ void print_stack_trace()
 
 	while(ebp) {
 		eip = ebp + 1;
-		printk("     [0x%d] %s\n", *eip, elf_look_symbol(*eip, &kernel_elf));
+		printk("     [0x%x] %s\n", *eip, elf_look_symbol(*eip, &kernel_elf));
 		ebp = (uint32 *)*ebp;
 	}
 }

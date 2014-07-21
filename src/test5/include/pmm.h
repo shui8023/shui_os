@@ -61,8 +61,8 @@ void pmm_free_page(uint32 p);
 /*kernel_start是内核加载到内存的起始位置
  *kernel_end 是内核加载到内存的末位置，在链接文件中定义的
  */
-extern uint8 kernel_start[];
-extern uint8 kernel_end[];
+extern uint32 kernel_start[];
+extern uint32 kernel_end[];
 
 
 /*

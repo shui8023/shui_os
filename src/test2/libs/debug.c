@@ -24,6 +24,21 @@ static  void printchar(int8 str);
 static  int  vprintk(const int8 * format, char * ap);
 static  void printi(int number);
 static void prints(char *);
+static void printx(int number);
+
+void printx(int number)
+{
+	char *hex = "0123456789ABCDEF";
+
+	int value;
+	int i = 7;
+
+	while (i >= 0) {
+		value = number >> i*4;
+		screen_char(hex[value&0xf], screen_black, screen_red);
+		i--;
+	}
+}
 
 void prints(char *s)
 {
@@ -97,7 +112,10 @@ int vprintk(const int8 * format, char * ap)
 			} else if (*format == 's') {
 				prints((va_arg(ap, char*)));
 				pc++;
-			} else {
+			} else if (*format == 'x') {
+				printx((va_arg(ap, int)));
+				pc++;
+			} else  {
 				printchar(*format);
 				pc++;
 				

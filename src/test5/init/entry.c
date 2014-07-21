@@ -29,10 +29,11 @@ int entry()
 	init_idt();
 
 	char *string = "hello word!\n";
-      
+  	int a = 0xC0010000;
+	
 	screen_clear();
 	printk("%s\n", string);
-  
+  	printk("%x\n", a);
 	printk("kernel in memory start :0x%x\n", kernel_start);
 	printk("kernel in memory end :0x%x\n", kernel_end);
 	printk("kernel in memory used :%d KB\n\n", (kernel_end - kernel_start + 1023)/1024);

@@ -75,22 +75,29 @@ void printi(int  number)
 void printx(int number)
 {
 	char hex[16] = { '0','1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+	int i = 7;
+//	int count = 0;
+	int value;
+
+
+	while (i >= 0) {
+		value = number >> i*4;
+//		if ((value&0xf) == 0) {
+//			count++;
+//		} 
+//		if ((count + i) == 8) {
+//			;
+//		} else {
+			screen_char(hex[value&0xf], screen_black, screen_red);
+//		}
+		i--;
+
+	}
+//	if ((count +i) == 7) {
+//		screen_char('0', screen_black, screen_red);
 	
-	int s[32];
-	int i = 0;
+//	}
 
-	if (number < 0) {
-		number = -number;
-	}
-
-	do {
-		s[i++] = number % 16;
-		number /= 16;
-	} while (number > 0);
-
-	for (i = i - 1; i >= 0; i--) {
-		screen_char(hex[s[i]], screen_black, screen_red);
-	}
 }
 
 int printk(const int8 * format, ...)

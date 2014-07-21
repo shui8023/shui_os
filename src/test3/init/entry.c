@@ -29,8 +29,9 @@ int entry()
 	init_idt();
 
 	char *string = "hello word!\n";
-      
+ 	char  *p = 0x4324324;     
 	screen_clear();
+	printk("%x", p);
 	printk("%s\n", string);
       	
 //	panic("test");

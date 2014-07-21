@@ -23,6 +23,8 @@ SECTIONS {
 
 	. += 0xc0000000;
 
+	/*AT(ADDR())该属性定义了该程序段的加载的位置(LVM)，该属性会覆盖该程序的内的section的AT()位置*/
+
 	.text :AT(ADDR(.text) - 0xc0000000) 
 	{
 		*(.text)

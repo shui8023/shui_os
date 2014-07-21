@@ -24,7 +24,27 @@ static  void printchar(int8 str);
 static  int  vprintk(const int8 * format, char * ap);
 static  void printi(int number);
 static void prints(char *);
+static void printx(int number);
 
+void printx(int number)
+{
+	char hex[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+	int s[100];
+	int i= 0;
+	if (number < 0) {
+		number = -number;
+	}
+
+	do {
+		s[i++] = number % 16;
+		number /= 16;
+	} while (number > 0);
+
+	for ( i = i - 1; i >= 0; i--) {
+		
+		screen_char(hex[s[i]], screen_black, screen_red);
+	}
+}
 void prints(char *s)
 {
 	screen_string(s, screen_black, screen_red);
@@ -97,7 +117,10 @@ int vprintk(const int8 * format, char * ap)
 			} else if (*format == 's') {
 				prints((va_arg(ap, char*)));
 				pc++;
-			} else {
+			} else if (*format == 'x') {
+				printx((va_arg(ap, int )));
+				pc++;
+			}else {
 				printchar(*format);
 				pc++;
 			}

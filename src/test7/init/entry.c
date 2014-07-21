@@ -82,25 +82,26 @@ __attribute__((section(".init.text"))) void entry()
 	kernel_init();
 
 } 
+
+
 void  kernel_init()
 {
 	init_debug();
 	init_gdt();
 	init_idt();
-
+	
 	char *string = "hello word!\n";
       	
 	screen_clear();
 	printk("%s\n", string);
 
-
 	printk("kernel in memory start :0x%x\n", kernel_start);
 	printk("kernel in memory end :0x%x\n", kernel_end);
 	printk("kernel in memory used :%d KB\n\n", (kernel_end - kernel_start + 1023)/1024);
-/*	
-	init_pmm();
+	
 	show_memory_map();
 
+	init_pmm();
 
 	uint32 value = pmm_alloc_page();
 	printk("Alloc physical address:%x\n", value);
@@ -136,12 +137,11 @@ void  kernel_init()
 	printk("free address is on 0x%x\n",malloc_address2);
 	kfree(malloc_address2);
 
-	
 	//hlt是暂时停机的状态
 	while (1) {
 		asm volatile ("hlt");
 	}
 
-	*/
+	
 }
 

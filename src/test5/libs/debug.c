@@ -19,6 +19,8 @@
 
 #include "debug.h"
 #include "screen_operate.h"
+#include "string.h"
+
 
 static  void printchar(int8 str);
 
@@ -75,22 +77,14 @@ void printi(int  number)
 void printx(int number)
 {
 	char hex[16] = { '0','1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
-	
-	int s[32];
-	int i = 0;
+	int i = 7;
+	int value;
 
-	if (number < 0) {
-		number = -number;
-	}
+	while (i >= 0) {
+		value = number >> 4*i;
+		screen_char(hex[value&0xf], screen_black, screen_red);
+		i--;
 
-	while (number > 0) {
-		
-		s[i++] = number % 16;
-		number /= 16;
-	}
-
-	for (i = i - 1; i >= 0; i--) {
-		screen_char(hex[s[i]], screen_black, screen_red);
 	}
 }
 
@@ -126,7 +120,7 @@ int vprintk(const int8 * format, char * ap)
 				prints((va_arg(ap, char*)));
 				pc++;
 			} else if (*format == 'x'){
-				printx(va_arg(ap, int));
+				printx(va_arg(ap, int ));
 				pc ++;
 			} else {
 				printchar(*format);

@@ -61,4 +61,9 @@ SECTIONS {
 
 
 	PROVIDE(kernel_end = .);
+
+	/DISCARD/ : {
+		*(.comment) 
+		*(.eh_frame)
+	}
 }
