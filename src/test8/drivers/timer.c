@@ -28,8 +28,7 @@
  */
 void  timer_callback(pt_regs_t *regs)
 {
-	static uint32 tick = 0;
-	printk("tick:%d\n", tick++);
+	schedule();
 }
 
 void init_timer(uint32 frequency)

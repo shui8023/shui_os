@@ -23,16 +23,17 @@
 #include "pmm.h"
 #include "vmm.h"
 
+typedef unsigned int  pid_t;
 //线程状态的描述符
 typedef enum {
-	TASK_UNINIT = 0;  	//未初始化
-	TASK_SLEEPING = 1; 	//睡眠
-	TASK_RUNNABLE = 2; 	//可运行也可能在队列中
-	TASK_ZOMBLE = 3; 	//僵死
+	TASK_UNINIT = 0, 	//未初始化
+	TASK_SLEEPING = 1, 	//睡眠
+	TASK_RUNNABLE = 2, 	//可运行也可能在队列中
+	TASK_ZOMBLE = 3 	//僵死
 }task_state;
 
 //线程切换的上下文保存的信息
-typedef struct {
+typedef struct context{
 	uint32 esp; 		//这个指针指向堆栈中即将执行的地址
 	uint32 ebp; 		//来保存堆栈中函数或过程的局部变量
 	uint32 ebx; 		//通常作为内存偏移指针使用
@@ -57,7 +58,7 @@ struct task_struct {
 };
 
 //全局的pid变量
-extern pid_t now_pid;
+extern pid_t new_pid;
 
 //内核线程的创建
 int32 kernel_thread(int (*fn)(void *), void *arg);

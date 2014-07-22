@@ -30,7 +30,7 @@
 #include "debug.h"
 
 
-//为什么是8192,应该是内核的可用的空间
+//为什么是8192,应该是内核的可用的空间,定义了8M的栈空间
 #define STACK_SIZE 8192
 
 //支持的最大物理内存512M
@@ -64,7 +64,7 @@ void pmm_free_page(uint32 p);
 extern uint8 kernel_start[];
 extern uint8 kernel_end[];
 
-
+extern uint32 kernel_stack_top;
 /*
  *打印出grub探测的内存的块
  *

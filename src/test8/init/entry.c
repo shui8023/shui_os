@@ -24,6 +24,9 @@
 #include "vmm.h"
 #include "multiboot.h"
 #include "heap.h"
+#include "sched.h"
+#include "task.h"
+
 
 /*
  *内核初始化函数
@@ -36,6 +39,7 @@ multiboot_t *glb_mboot_ptr;
 //开启分页机制之后的内核栈
 char kernel_stack[STACK_SIZE];
 
+uint32 kernel_stack_top;
 //内核使用的临时页表和页目录
 //该地址必须是和页是对齐的
 __attribute__((section(".init.data"))) pgd_t *pgd_tmp = (pgd_t *)0x1000;
@@ -71,18 +75,28 @@ __attribute__((section(".init.text"))) void entry()
 	asm volatile ("mov %0, %%cr0" : : "r" (cr0));
 
 	//切换内核栈
-	uint32 kernle_stack_top = ((uint32) kernel_stack  + STACK_SIZE) & 0xFFFFFFF0;
+	 kernel_stack_top = ((uint32) kernel_stack  + STACK_SIZE) & 0xFFFFFFF0;
 
 	//xor是异或的逻辑运算符
 	asm volatile ("mov %0, %%esp\n\t" 
-				"xor %%ebp, %%ebp" : : "r"(kernle_stack_top));
+				"xor %%ebp, %%ebp" : : "r"(kernel_stack_top));
 
 	glb_mboot_ptr = glb_mboot_tmp + PAGE_OFFSET;
 
 	kernel_init();
 
 } 
+int flag = 0;
 
+void thread(void *arg) 
+{
+	while (1) {
+		if (flag == 1) {
+			printk("B");
+			flag = 0;
+		}
+	}
+}
 
 void  kernel_init()
 {
@@ -94,6 +108,8 @@ void  kernel_init()
       	
 	screen_clear();
 	printk("%s\n", string);
+	
+	init_timer(200);
 
 	printk("kernel in memory start :0x%x\n", kernel_start);
 	printk("kernel in memory end :0x%x\n", kernel_end);
@@ -115,28 +131,18 @@ void  kernel_init()
 
 	init_vmm();
 	init_heap();
-	void *malloc_address1 = kmalloc(100);
-	printk("malloc address is on 0x%x\n", malloc_address1);
 	
-	
-	printk("test the memory mange:\n");
-	void *malloc_address0 = kmalloc(10);
-	printk("malloc address is on 0x%x\n",malloc_address0);
+	init_sched();
 
+	kernel_thread(thread, NULL);
+	asm volatile ("sti");
 
-	void *malloc_address2 = kmalloc(1000);
-	printk("malloc address is on 0x%x\n", malloc_address2);
-	
-
-	printk("free address is on 0x%x\n",malloc_address0);
-	kfree(malloc_address0);
-
-	printk("free address is on 0x%x\n",malloc_address1);
-	kfree(malloc_address1);
-	
-	printk("free address is on 0x%x\n",malloc_address2);
-	kfree(malloc_address2);
-
+	while (1) {
+		if (flag == 0) {
+			printk("A");
+			flag = 1;
+		} 
+	}
 	//hlt是暂时停机的状态
 	while (1) {
 		asm volatile ("hlt");
